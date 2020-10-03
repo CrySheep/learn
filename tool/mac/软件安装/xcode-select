@@ -1,0 +1,8 @@
+xcode-select --install
+
+
+注意：有时候执行这个命令会出现错误 ：不能下载该软件，因为网络出现问题。
+这时候我们可以在 https://developer.apple.com/download/more/ 上面手动下载安装Command_Line_Tools
+
+xcode-select -p
+

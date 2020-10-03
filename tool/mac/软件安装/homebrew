@@ -1,0 +1,18 @@
+mac下安装Homebrew提示Failed to connect to raw.githubusercontent.com port 443: Connection refused的解决办法【终极最简单版】
+
+正常 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+ 即可完成安装。
+
+ 你懂的原因
+ 解决1：科学上网
+ 解决2:直接使用这个开源脚本一键解决：
+
+https://gitee.com/cunkai/HomebrewCN
+
+解决3：Homebrew 国内自动安装脚本
+
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+
+
+引用 https://www.cnblogs.com/jacktu/p/12868222.html
+

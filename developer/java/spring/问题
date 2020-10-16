@@ -1,0 +1,6 @@
+BeanNotOfRequiredTypeException
+
+    修改配置 <aop:aspectj-autoproxy proxy-target-class="true"/>
+        proxy-target-class  属性决定给予接口还是给予类的代理被创建
+            true 基于类的代理被创建
+            false 基于接口的代理被创建

@@ -1,0 +1,13 @@
+invalid bound statement (not found)
+配置propertie 文件或 mybatis 配置文件问题
+    mybatis.mapper-locations:classpath*:mapper/**/*.xml
+
+    <bean id="sqlSessionFactory" class ="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath*:mapper/**/*.xml/>
+    </bean>
+
+
+could not resolve type alias 
+    mabatis.type-aliases-package 配置错误
+    mabatis.type-aliases-package= com.cmb.fmt.dtms.**.bean

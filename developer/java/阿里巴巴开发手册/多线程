@@ -1,0 +1,8 @@
+线程池不允许使用executors去创建，而是通过ThreadPoolExecutor的方式去创建
+    理由：
+        使用者可以更明确使用的规则，避免资源耗尽
+    Executor返回线程池的弊端
+        FixedThreadPool和SingleThreadPool
+            允许的请求队列最大值为I nteger.MAX_VALUE ,可能堆积大量请求，导致OOM
+        CachedThreadPool
+            允许的创建的线程数为 Integer.MAX_VALUE,可能创建大量的线程导致OOM

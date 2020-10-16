@@ -1,0 +1,10 @@
+maven 项目对象模型 pom 
+
+屏蔽起步以来
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusion>
+        <groupId>com.fasterxml.jackson.core</groupId>
+    </exclusion>
+</dependency>

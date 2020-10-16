@@ -1,0 +1,25 @@
+1、下载maven，并解压
+2、修改配置文件
+    终端输入 vi ~/.bash_profile     没有该文件使用 touch 命令创建
+    编辑内容输入
+        MAVEN_HOME=/Users/JYH/Desktop/Hadoop-2.7.2/apache-maven-3.3.9   //maven解压目录  访达里使用 cmd +option+c 复制文件路径
+        PATH=$MAVEN_HOME/bin:$PATH
+        export MAVEN_HOME 
+        export PATH
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home //Jave环境位置
+            /usr/libexec/java_home -V   获取java 路径
+3、生效配置
+    source ~/.bash_profile
+4、输入命令查看是否成功
+    mvn -v
+5、修改 setting.xml
+    镜像
+    <mirror>
+      <id>nexus-aliyun</id>
+      <mirrorOf>central</mirrorOf>
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public class="hljs-tag"></url>
+    </mirror>
+
+    本地仓库
+    <localRepository>/Users/wushimin/java/repository<localRepository>

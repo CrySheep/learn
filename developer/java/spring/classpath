@@ -1,0 +1,7 @@
+classpath 和 classpath* 的区别
+classpath和classpath* 的区别
+classpath和classpath*的区别
+
+classpath  当前target目录下的 classes 目录
+classpath  还会加载jar 包的classpass 路径
+

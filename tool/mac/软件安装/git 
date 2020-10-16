@@ -1,0 +1,26 @@
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+https://git-scm.com
+
+
+创建ssh key、配置git
+git config --global user.name "wenbo"
+git config --global user.email "1050794513@qq.com"
+
+
+ssh-keygen -t rsa -C "1050794513@qq.com"
+
+
+cat .ssh/id_rsa.pub
+
+github setting new ssh key ß≈
+
+
+-------------
+最简便安装
+在 macOS 上安装
+在 Mac 上安装 Git 有多种方式。 最简单的方法是安装 Xcode Command Line Tools。 Mavericks （10.9） 或更高版本的系统中，在 Terminal 里尝试首次运行 git 命令即可。
+
+$ git --version
+
+
+https://git-scm.com/book/zh/v2/起步-安装-Git

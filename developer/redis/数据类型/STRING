@@ -1,0 +1,28 @@
+STRING
+    存储值： 字符串、整数、浮点数
+    操作
+        字符串 ： 整个或部分执行操作
+        整数、浮点数 ： 自增、自减少
+
+存储
+    ----hello--------string--
+｜      world                   ｜
+    -------------------------
+
+    键 hello 
+    值 world
+    类型 string 
+命令 
+    GET 
+    SET 
+    DEL 
+
+
+    set hello word 
+    get hello
+        "world" 
+    del hello 
+        1
+    get hello 
+        nil
+    

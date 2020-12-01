@@ -1,0 +1,310 @@
+三个部分
+第一部分
+    redis基本介绍
+第二部分
+    redis命令
+    redis管理操作
+
+第三部分
+    扩展redis
+        内存优化
+        水平分片
+        Luai奥本
+
+章节 
+    1 redis 基本介绍
+        5种数据结构
+        与其他数据库对比
+
+        
+    2 如何使用redis
+    3 redis 命令
+        常用命令
+        基本事务命令
+        排序命令
+        过期时间命令
+    4 持久化、性能测试、故障恢复
+    5 redis 数据库
+        日志
+        计数器
+        IP所属地查找程序
+        服务配置程序
+    6 其他组件
+        自动补全
+        加锁
+        任务队列
+        消息传递
+        文件分发
+    7 与搜索有关的问题和解决方案
+        数据查询
+        数据过滤
+    8 构建类twitter 网站 
+        流API 
+
+    9 扩展redis
+        内存优化
+            结构分片方法
+            短结构使用方法
+    10 redis 水平分片 和 主从复制
+    11 Lua 脚本编程
+        某些场景
+    附录A 
+        安装redis 、python、python redis 客户端
+            Linux 
+            OS X 
+            Windows 
+    附录B 
+        可能会用到的资源
+        redis 案例
+
+
+
+第一部分
+    redis基本介绍
+
+    简介：
+        内存数据库
+        具有复制特性
+        5种数据结构
+        其他特性（实现数据百GB数据、每秒处理上万次请求的系统）
+            复制
+            持久化
+            客户端分片
+    适用范围
+        主存储
+        二级存储
+    源码 
+        http://github.com/josiahcarlson/redis-in-action 
+        spring 框架
+            http://springsource.org/spring-data-redis 
+    重新简介
+        速度快
+        适用内存存储的非关系型
+        键与5种不同的数据结构
+            字符串
+            列表
+            集合
+            散列表
+            有序集合
+        每种都有字节的专属命令
+        支持批量操作和不完全事务
+        
+        复制特性，扩展读性能
+            主从复制
+        客户端分片，扩展写性能
+        发布订阅
+        可持久化
+            两种方式
+                时间点存储
+                    “指定时间段内有指定数量的写操作”时被执行
+                    两条转储到硬盘命令（任何一条）
+                所有修改数据库的命令都写入一个只追加文件里。
+                    从不
+                    每秒同步一次
+                    每写入更改命令就同步
+        脚本（存储过程）
+
+        
+
+    比较
+        与关系型数据库对比
+            非关系型数据库，没有表
+        与memcached 
+            相同
+                都用于存储键值映射
+                性能相似 
+            不同
+                以两种不同的方式将数据写入硬盘
+                redis 可以存储字符串外的其他4种数据结构，memcached 只能存储字符串
+    
+        
+名称：  redis 
+类型： 内存，非关系
+数据存储: 字符串\列表\集合\散列表\有序集合
+查询类型: 每种类型都有自己的命令，还支持 批量操作，不完全事务
+附加功能 ： 发布订阅、主从复制（master/slave replication）、持久化、脚本（存储过程）
+
+
+名称：  memcached 
+类型： 内存，键值缓存
+数据存储: 键值映射
+查询类型: 创建、读取、更新、删除，以及其他
+附加功能 ： 为提升性能而设的多线程服务器
+
+
+名称：  mongoDB 
+类型： 硬盘存储
+数据存储: 表，表包含schema 的 BSON 文档 ？
+查询类型: 创建、读取、更新、删除，条件查询等
+附加功能 ： map-reduce ，主从复制，分片，空间索引
+
+名称：  MYSQL 
+类型： 关系型数据库
+数据存储: 表、列、视图、空间和第三方扩展
+查询类型: select insert update delete 函数 存储过程
+附加功能 ： map-reduce ，主从复制，分片，空间索引
+
+
+
+
+
+
+
+
+数据结构
+    String
+        值： 字符串、整数、浮点数
+        读写 ： 整个字符串、或部分字符串；整数、浮点数自增，自减
+    List 
+        值： 链表，边表包含字符串
+        读写： 两端存入，弹出；修剪链表； 根据值查找
+    Set 
+        值： 无需集合，字符串唯一
+        读写： 添加、获取、移除；查找；集合操作（交、并、差、随机获取）
+    Hash 
+        值： 键值对，无需散列
+        读写： 添加、获取、移除；获取所有
+    ZSet 
+        值：字符串与浮点数分值映射，按分值排序
+
+    通用命令
+        DEL 
+        TYPE 
+        RENAME 
+        命令列表 http://redis.io/commands 
+
+        字符串命令：
+            GET 
+            SET 
+            DEL 
+            部分读写命令：
+
+            set key value 
+            get key 
+            del key 
+
+        列表：
+            有序存储多个字符串
+            LPUSH
+            RPUSH
+            LPOP
+            RPOP
+            LINDEX
+            LRANGE
+            其他：
+                移除
+                插入
+                修剪
+            rpush lisk-key item 
+            lrange list-key 0 -1 
+            lindex list-key 1 
+            lpop list-key 
+            
+        集合：
+            散列表存储字符串，不重复，作为散列的键
+            SADD
+            SRAM 移除
+            SISMEMBER 快速检查
+            SMEMBERS 获取所有元素
+            其他
+                SINTER  交
+                SUNION 并
+                SDIFF 差
+            用集合解决的问题
+
+            sadd set-key item 
+            smembers set-key 
+            sismember set-key item    
+            srem set-key item 
+        散列 
+            存储键值对，散列的值，字符串，数字（自增，自减）
+            HASH-KEY SUB-KEY VALUE
+            HSET
+            HGET
+            HGETALL
+            HDEL
+
+            hset hash-key sub-key1 value1 
+            hgetall hash-key 
+            hdel hash-key sub-key1 
+            hget hash-key sub-key1 
+            
+        有序集合
+            存储键值对，键——成员；值——分值
+            ZADD
+            ZRANGE
+            ZRANGEBYSCORE
+            ZREM
+
+
+            zadd zset-key 728 member1
+            zrange zset-key 0 -1 withscores 
+            zrangebyscore zset-key 0 800 withscores 
+            zrem zset-key member 
+
+    简单实例
+        文章投票
+        hash 用来存储文章信息
+            article:92617 
+            ------------------------
+            title   | xxxxx 
+            link    | xxxxxx 
+            poster  | user:83271
+            time    | xxxxxx 
+            votes   | 528 
+        zset 用来排序
+            发布时间排序
+            time: 
+            ---------------------------
+            article:100408| xxxxxxxxx
+            article:100635| xxxxxxxxx
+
+            评分排序
+            score: 
+            ---------------------------
+            article:100408| xxxxxxxxx
+            article:100635| xxxxxxxxx
+        set 用来存储投票用户
+
+            voate:100408
+            ---------------------------
+            user:374592
+            user:374593
+            user:374594
+
+        事务 
+            SADD、ZINCRBY、HINCRBY 等需要放到事务中
+
+    构建web 引用
+        登录cookie
+        购物车cookie 
+        缓存页面
+        缓存数据库行
+        分析页面访问记录
+
+
+
+    10*100*20
+    20000
+    
+        
+
+
+
+    
+
+安装
+    Linux 
+        apt-get install redis-server  // 不推荐，可能旧版本
+        推荐：
+            安装 构建工具
+                sudo apt-get update 
+                sudo apt-get install make gcc python-dev
+
+            下载源码 
+                http://redis.io/download 
+            解压，编译，启动
+            下载 python 语言 redis 客户端
+redis-cli 
+        
+

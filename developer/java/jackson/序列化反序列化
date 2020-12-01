@@ -1,0 +1,8 @@
+反序列化List
+ObjectMapper mapper = new ObjectMapper();
+// 忽略 不匹配 的字段
+mapper.configure(DeserizationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+JavaType javaType = mapper.getTypeFactory().constructCollectionType(List.class,User.class);
+List<User> list2=mapper.readValue(json,javaType);
+
+s

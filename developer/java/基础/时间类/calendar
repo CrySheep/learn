@@ -1,0 +1,5 @@
+Calendar calendar =  Calendar.getInstance();
+转化为date 
+    calendar.getTime()
+date 转calendar 
+    calendar.setTime(Date);

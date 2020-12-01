@@ -1,0 +1,11 @@
+elasticsearch 了解多少，说说你们公司es的集群架构，索引数据大小，分片有多少，以及一些调优手段。elasticsearch的倒排索引是什么。
+
+elasticsearch 索引数据多了怎么办，如何调优，部署。
+
+elasticsearch 是如何是海鲜master选举的
+
+详细描述一下elasticsearch 索引文档的过程
+
+elasticsearch 在部署时，对linux的设置有哪些优化方法
+
+lucence 内部结构是什么

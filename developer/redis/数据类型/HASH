@@ -1,0 +1,20 @@
+HASH 
+    存储 ： 键值对
+    操作
+        添加、获取、移除
+        获取所有键值对
+
+hash-key 
+ hash 
+    sub-key1    value1
+    sub-key2    value2
+
+sub-key 不相同
+
+
+    HSET
+    HGET
+    HGETALL
+    HDEL
+
+存储信息

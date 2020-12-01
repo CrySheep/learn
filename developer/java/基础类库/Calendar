@@ -1,0 +1,11 @@
+
+获取年月日
+Calendar calendar = Calendar.getInstance();
+int year = calendar.get(Calendar.YEAR);
+int month = calendar.get(Calendar.MONTH);// 从0开始
+int date =calendar.get(Calendar.DATE);
+int hour = calendar.get(Calendar.HOUR_OF_DAY);
+int moa= calendar.get(Calendar.AM_PM)；// 1 下午
+
+
+calendar.add(Calendar.YEAR,5)

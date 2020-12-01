@@ -1,0 +1,19 @@
+bean 初始化
+
+    实例化bean
+    设置属性
+    检查aware相关接口并设置相关依赖
+
+    BeanPostProcessor.postProcessBeforeInitialization 方法
+    IniitializingBean.afterPropertiesSet (如果实现)
+    是否有配置的init-method
+    BeanPostProcessor.postProcessAfterInitialization 方法
+
+    注册 Destruction 相关接口回掉
+
+    使用中
+    bean是否事项 DisposableBean 接口，调用destroy()方法
+    配置的自定义destroy方法
+
+
+    

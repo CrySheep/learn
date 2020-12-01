@@ -1,0 +1,37 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://org/dtd/mybatis-3-mapper.dtd">
+
+!DOCTYPE 标签 标准通用标记语言的 文档类型 声明 ，用来制定 使用什么样的 文档定义 （DTD） 来解析文档
+
+语法
+私有的外联文档类型定义
+<!DOCTYPE 根元素 SYSTEM "文档类型定义//严格.定义"
+[<!--内部子集声明，可选项目-->]
+>
+
+公共的外联文档类型定义
+<!DOCTYPE 根元素 PUBLIC "注册//组织//类型 标签//定义 语言" "文档类型定义位置"
+[<!--内部子集声明，可选项目-->]
+>
+
+<!DOCTYPE HTML
+    PUBLIC “+//公司//DTD超文本5//ZH“ ”地址/严格.定义“>
+
+
+内敛文档类型定义
+<!DOCTYPE 根元素
+[
+    文档类型定义里头的内容：
+    元素/属性/实体/符号
+    处理指令/批注/引用
+]>
+
+<!DOCTYPE　百度百科_行标签
+[
+　<!ELEMENT　多行　(排*)
+　<!ELEMENT　排　O　-　(#PCDATA)　--　已解析的字符数据　-->
+　<!ENTITY　百度百科_行标签　"</排>">
+　<!SHORTREF　壹行　"&#引;&#短;"　百度百科_行标签　--　！短参考　-->
+　<!USEMAP　壹行　排>
+]

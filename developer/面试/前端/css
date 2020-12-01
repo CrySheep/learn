@@ -1,0 +1,142 @@
+calc, support, media各自的含义及用法？
+
+    @support主要是用于检测浏览器是否支持CSS的某个属性，其实就是条件判断，如果支持某个属性，你可以写一套样式，如果不支持某个属性，你也可以提供另外一套样式作为替补。
+
+    calc() 函数用于动态计算长度值。 calc()函数支持 "+", "-", "*", "/" 运算；
+
+    @media 查询，你可以针对不同的媒体类型定义不同的样式。
+
+css水平、垂直居中的写法，请至少写出4种？
+
+这题考查的是css的基础知识是否全面，所以平时一定要注意多积累
+水平居中
+
+    行内元素: text-align: center
+    块级元素: margin: 0 auto
+    position:absolute +left:50%+ transform:translateX(-50%)
+    display:flex + justify-content: center
+    垂直居中
+
+    设置line-height 等于height
+    position：absolute +top:50%+ transform:translateY(-50%)
+    display:flex + align-items: center
+    display:table+display:table-cell + vertical-align: middle;
+
+
+1rem、1em、1vh、1px各自代表的含义？设置长度的几个单位
+
+    rem
+    rem是全部的长度都相对于根元素<html>元素。通常做法是给html元素设置一个字体大小，然后其他元素的长度单位就为rem。
+
+    em
+    子元素字体大小的em是相对于父元素字体大小
+    元素的width/height/padding/margin用em的话是相对于该元素的font-size
+
+    vw/vh
+    全称是 Viewport Width 和 Viewport Height，视窗的宽度和高度，相当于 屏幕宽度和高度的 1%，不过，处理宽度的时候%单位更合适，处理高度的 话 vh 单位更好。
+
+    px
+    px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。
+
+    一般电脑的分辨率有{1920*1024}等不同的分辨率
+
+
+说一下盒模型？
+    盒模型的组成，由里向外content,padding,border,margin.
+
+    在IE盒子模型中，width表示content+padding+border这三个部分的宽度
+
+    在标准的盒子模型中，width指content部分的宽度
+
+    box-sizing的使用
+
+    box-sizing: content-box 是W3C盒子模型
+    box-sizing: border-box 是IE盒子模型
+    box-sizing的默认属性是content-box
+
+
+
+布局方式
+    传统：
+        布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现
+    flex布局——弹性布局
+        Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能
+
+
+        采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"
+
+        水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+
+        容器的属性
+            flex-direction 
+                属性决定主轴的方向（即项目的排列方向）
+            flex-wrap 
+                如果一条轴线排不下，如何换行。
+            flex-flow 
+                flex-direction属性和flex-wrap属性的简写形式
+            justify-content
+                项目在主轴上的对齐方式
+            align-items
+                定义项目在交叉轴上如何对齐。
+            align-content
+                定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+        项目的属性
+            order
+                定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+            flex-grow
+                定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+            flex-shrink
+                定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+            flex-basis
+                定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+            flex
+                flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+            align-self
+                允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性
+    网格布局
+        网格布局（Grid）是最强大的 CSS 布局方案
+
+        采用网格布局的区域，称为"容器"（container）。容器内部采用网格定位的子元素，称为"项目"（item）。
+
+        容器里面的水平区域称为"行"（row），垂直区域称为"列"（column）。
+
+        行和列的交叉区域，称为"单元格"（cell）。
+
+        划分网格的线，称为"网格线"（grid line）。水平网格线划分出行，垂直网格线划分出列
+
+        容器属性
+            display: grid指定一个容器采用网格布局。
+
+            grid-template-columns 属性，
+            grid-template-rows 属性
+
+            grid-row-gap 属性，
+            grid-column-gap 属性，
+            grid-gap 属性
+            grid-template-areas 
+            grid-auto-flow
+            justify-items 属性，
+            align-items 属性，
+            place-items 属性
+            justify-content 属性，
+            align-content 属性，
+            place-content 属性
+            grid-auto-columns 属性，
+            grid-auto-rows 属性
+            grid-template 属性，
+            grid 属性
+        项目属性
+            grid-column-start 属性，
+            grid-column-end 属性，
+            grid-row-start 属性，
+            grid-row-end 属性
+            grid-column 属性，
+            grid-row 属性
+            grid-area 属性
+            justify-self 属性，
+            align-self 属性，
+            place-self 属性
+
+
+

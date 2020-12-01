@@ -1,0 +1,18 @@
+有序集合
+
+ZSET 
+    存储 ： 字符串值与浮点数分值  ， 有序（分值决定）
+    操作 ： 
+        添加、获取、删除
+        根据分值范围或成员来获取
+
+zset-key
+zset 
+    member1 728
+    member2 982
+
+    ZADD
+    ZRANGE 
+    ZRANGEBYSCORE
+    ZREM 
+    

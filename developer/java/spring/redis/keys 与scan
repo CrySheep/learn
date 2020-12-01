@@ -1,0 +1,19 @@
+keys 为不安全，会导致表锁住，其他请求被阻塞
+
+scan 实现
+
+List<String> scan(String pattern){
+    return redisTemplate.execute((RedisConnection con)->{
+        List<String> keys = new ArrayList<>();
+        try(Cursor<byte[]>cursour=con.scan(ScanOptions.scanOptions().count(Long.Max_VALUE).match(patter).build())){
+            cursor.forEachRemaining(c->{
+                if(!ObjectUtils.isEmpty(c)){
+                    keys.add(new String(c));
+                }
+            });
+        }catch(IOException e){
+            return keys;
+        }
+    });
+    
+}

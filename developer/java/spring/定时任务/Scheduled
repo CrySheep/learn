@@ -1,0 +1,91 @@
+@Component
+@EnableScheduling
+public class TestJob{
+    @Scheduled(cron="0/10 * * * * ?")
+    public void runfirst(){
+        sout("xxxxxxx");
+    }
+
+    //毫秒
+    @Scheduled(fixedRate=1000*10)
+    public void runseceond(){
+        sout("xxxxxxx");
+    }
+
+    @Scheduled(fixedDelay=1000)'
+    public void runThird(){
+        sout("xxxxx");
+    }
+}
+
+
+
+方法二
+通过SchedulingConfigurer
+@Configuration
+@ComponentScan(value="com.es.xxx")
+@EnableScheduling
+public class Config implements SchedulingConfigurer{
+    @Override
+    public void configureTask(ScheduledTaskRegistrar taskRegistrar){
+        taskRegistrar.addFixedRateTask(new Runnable(){
+            @Override
+            public void run(){
+
+            }
+        },100);
+
+        taskRegistrar.addTriggerTask(new Runnable(){
+            @Override
+            public void run(){
+
+            }
+        },new Trigger(){
+            @Override
+            public Date nextExecutionTime(TriggerContext triggerContext){
+                CronTrigger trigger = new CronTrigger("*/2 * * * * ?");
+                Date nextExecDate = trigger.nextExecutionTime(triggerContext);
+                return nextExecDate;
+            }
+        });
+        TriggerTask triggrtTask = new TriggerTask(()->{},t->{});
+        taskRegistrar.addTriggerTask(triggrtTask);
+
+    }
+}
+
+@Scheduled 参数
+
+cron 
+接受一个cron 表达式
+    cron表达式语法见 cron 文件
+    [秒][分][小时][日][月][周][年]
+
+支持占位符
+    time：
+        cron: */5 * * * * *
+        interval: 5
+    
+    @Scheduled(cron="${time.cron}")
+    void testPlaceholder1(){
+
+    }
+    @Scheduled(cron="*/${time.interval} * * * * *")
+    void testPlaceholder2(){}
+
+
+zone
+    时区，接收一个 java.util.TimeZone#ID,cron表达式基于该时区解析
+    默认为空串，取服务器时区
+fixedDelay 
+    上次执行完后多长时间执行
+fixedDelayString 
+    同fixedDelay，接收字符串
+fixedRate 
+    上一次开始执行时间后执行
+fixedRateString 
+initialDelay
+    第一次延迟多长时间后再执行
+initialDelayString 
+
+

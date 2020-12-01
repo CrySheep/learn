@@ -1,0 +1,20 @@
+java 代理
+public class ProxyTest {
+    public static void main(String[] args) {
+        SayServiceImpl sayServiceImpl = new SayServiceImpl();
+        MyInvocation myInvocation = new MyInvocation(sayServiceImpl);
+        SayService sayService=(SayService) myInvocation.createProxyInstance();
+        sayService.saySomething("haha");
+    }
+}
+interface SayService{
+    void saySomething(String world);
+}
+class SayServiceImpl implements  SayService{
+
+    @Override
+    public void saySomething(String world) {
+        System.out.printf(" '"+world+"' ");
+    }
+}
+

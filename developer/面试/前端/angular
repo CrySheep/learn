@@ -1,0 +1,70 @@
+模块
+    根模块
+        appmodule
+    特性模块
+    @NgModule()
+组件
+    类
+    html模版
+    @Component()
+组建
+    模版
+        html 和 angular 标记
+    指令
+    服务
+        @Injectable()
+        依赖注入
+            组建把服务委托给服务，保持组件精简和高效
+    数据绑定
+        事件绑定
+        属性绑定
+    
+路由
+    Router 模块提供了一个服务
+    工作模式
+        地址栏输入url
+        点击连接
+        浏览器前进后退
+    道涵路径和组件关联
+
+
+模块
+    根模块
+        AppModule (app.module.ts)
+    特性模块
+        子模块
+    
+    @NgModule 元数据
+        declarations
+            可声明对象。当前模块的组件、指令、管道
+        exports
+            导出列表，可声明对象
+        imports
+            导入列表，其他组件导出列表中需要在本模块用到的对象
+        providers
+            服务创建器。本模块供其他全局使用的服务创建起（可以组件级别）
+        bootstrap
+            主视图，根组件。根模块才设置
+
+    组件
+        一个模块
+            一个根组件
+                多个其他组件
+        视图：
+            组件和模版
+            宿主视图
+                创建组件时与宿主视图关联
+
+    库模块
+        @angular 前缀
+        npm install 
+        import
+            javascript
+            导入装饰器
+                import{Component} from '@angular/core';
+            导入模块
+                import{BrowserModule} from '@angular/platform-brower';
+
+            angular 
+                imports[BrowserModule];
+                

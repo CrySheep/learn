@@ -11,3 +11,7 @@ invalid bound statement (not found)
 could not resolve type alias 
     mabatis.type-aliases-package 配置错误
     mabatis.type-aliases-package= com.cmb.fmt.dtms.**.bean
+
+
+ test 标签  string  参数  '' 替换“”
+<if test=' param1=="stringValue"'></if>

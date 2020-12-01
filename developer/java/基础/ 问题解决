@@ -1,0 +1,7 @@
+error java 无效的源发行版  
+    idea jdk 版本不对
+    ctrl+alt+shift+s  projectsetting -project
+
+error java 无效的标记 -parameters
+    java compiler 设置不对
+    ctrl+alt+s projectcompiller-override compliler parameters 删除记录即可

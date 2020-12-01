@@ -1,0 +1,28 @@
+
+LIST
+    存储值 ： 链表 （存储字符串）
+    操作 ：两端进行推入、弹出；修剪；读取单个或多个；根据值查找、移除
+
+
+    ---list-key---------------list---
+|                                       |
+|   item                                |
+|   item2                               |
+|                                       |
+    ----------------------------------
+
+    键  list-key 
+    值类型 链表 list
+    链表值  item、item2 字符串
+
+
+    LPUSH
+    LRANGE
+    LINDEX
+    LPOP 
+
+    RPUSH
+    RRANGE
+    RINDEX
+    RPOP 
+    

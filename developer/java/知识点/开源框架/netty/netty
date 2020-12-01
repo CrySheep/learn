@@ -1,0 +1,5 @@
+netty 的线程模型，netty 如何基于reactor模型上实现的
+为什么选择netty
+netty 的fashwheeltimer 的用法，实现原理，是否出现国调用不准时，怎么解决。
+netty的心跳处理在弱网下怎么办
+netty的通讯协议是什么样的

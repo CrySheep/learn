@@ -1,0 +1,22 @@
+什么情况下会发生栈内存溢出
+jvm内存结构，Eden 和Survivor 比例
+Jvm 为什么要分成新生代，老年代，持久代。新生代中为什么要氛围Eden和Survivor
+jvm 中一次完整的GC流程是怎么样的，对象如何晋升到老年代。
+说说你知道的几种主要的jvm参数
+你知道哪几种来及收集器，各自的优缺点，重点讲一下cms 和G1 ，包括原理，流程，优缺点
+垃圾回收算法的实现原理
+内存溢出，排查
+jvm 参数
+g1 和cms 区别，团兔粮优先和响应优先的垃圾收集器选择
+怎么打出线程栈信息
+
+-server -Xms512m -Xmx512m -Xss1024K
+-XX:PermSize=256m -XX:MaxPermSize=512m -
+XX:MaxTenuringThreshold=20XX:CMSInitiatingOccupancyFraction=80 -
+XX:+UseCMSInitiatingOccupancyOnly
+
+gc 原理 
+gc回收算法，及实现原理
+
+in-jvm
+jmm 缓存模型如何调优

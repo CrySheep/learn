@@ -1,0 +1,7 @@
+类可以实现多个接口吗
+继承和聚合的区别
+如何在父类中为子类自动完成所有的hashCode 和equals 实现？这么做有什么优劣
+深拷贝和浅拷贝区别
+Object类的hashCode 和equals 方法的理解，在什么场景下需要重新实现这两个方法
+a.hashcode()有什么用，与a.equals(b) 有什么关系
+不想等的对象会不会有相同的hashcode 

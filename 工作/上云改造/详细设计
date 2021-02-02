@@ -1,0 +1,40 @@
+服务
+    添加服务
+        服务id
+        服务名称
+        是否自动启动
+        启动bean
+        -----隐藏属性非设置----
+        服务状态 默认未启动
+        -----线程------
+        线程id=服务id
+        最大线程数
+        最小线程数
+        分组 
+        保持活跃时间
+        保持活跃单位
+        阻塞队列大小
+        createTime
+        updateTime
+
+
+
+module  xxx
+businessType   aaaa[.bbbb][.cccc]
+specialBean MQMessageSpecialHandler
+
+
+
+解析报文
+查看是否配置处理bean 
+    T  MQCommonMsgSpHabndler  module   businessTypePart1   businessTypePart2 ... 
+
+    未配置  argument = null ：
+        发送到指定mq  参数配置
+    已配置 argument != null 
+        
+        根据specialBean 获取处理bean
+        调用特殊处理
+        更新处理结果
+
+

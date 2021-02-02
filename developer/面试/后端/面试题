@@ -1,0 +1,299 @@
+
+
+java 基础
+    java 的基本类型，每个类型的大小
+        byte short int char long float double bool
+        不是很清除
+      一半
+    自动装箱和拆箱，java 怎么实现的
+        不太了解
+    string 类型：
+        jdk 种 substring 的原理及区别
+        switch 支持的类型
+            byte short int char string 
+            switch 支持的底层实现
+    final 关键字的作用
+        不了解 
+
+    hashmap 冲突的解决
+        jdk 7 桶，链表
+        jdk 8 桶，平衡树
+        默认hash因子是多少 0.75
+        默认大小是多少  16
+
+        hash 冲突解决不是很清楚
+
+        不是和了解
+
+    代理的几种模式：
+        静态代理
+        动态代理
+            jdk动态代理
+            cglib动态代理
+
+    什么是泛型
+        jdk5 引入的一个特性，允许在定义的时候类型参数，在使用时使用具体的类型来替换类型参数
+
+        提高了代码的复用型
+
+    泛型实现的两种方式：
+        code specialization 
+        code sharing 
+
+    java 的泛型为什么被称为伪泛型
+        不了解
+    介绍一下泛型通配符
+        通配符不了解
+
+        extends 和supper 的区别
+        PRODUCT  EXTENDS   COMSUMER  SUPER
+        上界 <? extends superclass> 子类是可接受参数，superclass 页包含 只能取不能存
+    下界 <? super subclass> 超类时可接受参数 可以存，只能取成Object
+
+    不是很了解
+
+    class 文件 的魔数是什么 CAFEBABE
+
+    异常处理：
+        error 和 Exception 
+        受检查异常和不受检查异常
+
+        不了解
+java 内存
+    jvm运行时数据区域 内存分区，分别什么作用
+        -----------线程共享
+        方法区
+
+        堆
+
+
+        -----线程隔离
+        虚拟机栈
+            栈针
+                局部变量表
+                操作数栈
+                动态连接
+                方法出口
+        本地方法栈
+        程序计数器
+        
+    
+        不了解
+
+    内存溢出：
+        HeapDumpOnOutOfMemoryError
+        stackOverflowError
+        PermGen
+
+java 多线程
+    创建线程的几种方式
+        extends Thread
+        new Thread(Runnable )
+
+        Thread 
+        Runnable
+        Callable 
+        FutureTask 
+        线程池
+
+
+        不了解
+            2
+
+    线程的几种状态
+        
+        New 
+        Runnable 
+        blocked
+        Waiting 
+        Timed waiting
+        Terminated 
+
+        回答出来
+
+    创建线程池的几种方式
+
+    线程池不允许使用executors去创建，而是通过ThreadPoolExecutor的方式去创建
+    理由：
+        使用者可以更明确使用的规则，避免资源耗尽
+    Executor返回线程池的弊端
+        FixedThreadPool和SingleThreadPool
+            允许的请求队列最大值为I nteger.MAX_VALUE ,可能堆积大量请求，导致OOM
+        CachedThreadPool
+            允许的创建的线程数为 Integer.MAX_VALUE,可能创建大量的线程导致OOM
+jvm 内存管理
+    垃圾收集器有哪些
+
+    垃圾收集算法
+        不了解
+垃圾收集器：
+    判断对象已死的方法：
+        引用计数法
+            被引用，引用计数加1
+            引用失效，引用计数器减1
+            计数器为0，对象不再被引用
+        可达性分析法：
+            通过GCRoot 对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链，当一个对象到gcroots 没有任何引用链相连，则对象不可用。
+                可作为GCRoot 的对象
+                    虚拟机栈的对象
+                    方法区静态属性的对象
+                    方法区常量引用对象
+                    本地方法jni
+
+
+        4种引来类型： 
+            强引用
+                只要引用存在，垃圾收集器永远不会回收该对象
+            软引用
+                还有用但非必须的对象。软引用关联这对象，在系统将要发生内存溢出异常之前，将会把这些对象进行回收范围之中进行第二次回收。
+            弱引用
+                也是用来描述非必须对象的，但是它的强度比软引用更弱一些，被引用关联的对象只能生存到下一次来及收集发生之前
+            虚引用
+                幽灵引用或幻影引用，最弱的引用。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也不能通过虚引用获取一个对象实例
+
+
+
+    垃圾收集算法：
+        标记-清除算法：
+
+        复制算法：
+
+        标记整理算法：
+        
+        分代收集算法：
+
+        永久代垃圾回收
+            废弃常量和无用类
+            废弃常量
+            无用类
+                类的所有实例已经被回收
+                classLoader 已经被回收
+                java.lang.Class对象没有在任何地方被引用
+            
+面向对象编程的三大基本特征
+    封装
+    继承
+    多台
+    
+    了解
+面向对象的五大基本原则
+    单一职责
+    开闭原则
+    里氏替换原则
+    依赖导致原则
+    接口隔离
+
+常用的设计模式
+    单例
+    抽象工厂
+    建造者
+    工厂模式
+    原型模式
+
+    适配器
+    桥接
+    装饰
+    组合
+    外观
+    享元
+    代理
+
+    模版
+    命令
+    迭代器
+    观察者
+    中介者
+    备忘录
+
+    解释器
+    状态
+    策略
+    责任链
+    访问者
+
+
+单例的几种实现方式 7种
+    2种
+    懒汉，线程不安全
+    懒汉，线程安全 
+    饿汉，
+    饿汉变种
+    静态内部类
+    枚举
+    双重锁校验
+
+
+    
+spring bean 的生命周期  实例化bean
+    设置属性
+    检查aware相关接口并设置相关依赖
+
+    BeanPostProcessor.postProcessBeforeInitialization 方法
+    IniitializingBean.afterPropertiesSet (如果实现)
+    是否有配置的init-method
+    BeanPostProcessor.postProcessAfterInitialization 方法
+
+    注册 Destruction 相关接口回掉
+
+    使用中
+    bean是否事项 DisposableBean 接口，调用destroy()方法
+    配置的自定义destroy方法
+
+创建bean的作用域
+    singleton
+    prototype
+    request
+    session
+    application
+
+    了解
+        单列
+        
+
+spring 事务的几种传播方式
+    Propagation
+    PROPAGATION_REQUIRED 如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。
+
+    PROPAGATION_SUPPORTS 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行。但是对于事务同步的事务管理器，PROPAGATION_SUPPORTS与不使用事务有少许不同。
+
+    PROPAGATION_MANDATORY 如果已经存在一个事务，支持当前事务。如果没有一个活动的事务，则抛出异常。
+
+    PROPAGATION_REQUIRES_NEW 总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起。
+
+    PROPAGATION_NOT_SUPPORTED 总是非事务地执行，并挂起任何存在的事务。
+
+    PROPAGATION_NEVER 总是非事务地执行，如果存在一个活动事务，则抛出异常
+
+    PROPAGATION_NESTED如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, 则按TransactionDefinition.PROPAGATION_REQUIRED 属性执行
+
+    事务是逻辑处理原子性的保证手段，通过使用事务控制，可以极大的避免出现逻辑处理失败导致的脏数据等问题。
+
+    有一定了解
+
+mysql 索引的实现原理
+
+    
+    流水号
+
+    left join  inner join right join 
+
+
+
+事务特性
+    能回答
+
+
+
+
+
+reddis 有哪几种数据类型 
+    HASH LIST SET STRING ZSET
+    
+
+
+
+
+
+
+
+    

@@ -1,0 +1,3 @@
+public class Myconfiguratiohn implements ImportBeanDefinitionRegistrar,EnvironmentAware,ResourceLoaderAware{
+    s
+}

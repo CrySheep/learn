@@ -1,0 +1,67 @@
+数组
+多维数组
+不规则数组
+另一种数组声明语法
+数组引用赋值
+length成员
+for-each
+字符串
+命令行实参
+？运算符
+
+数组
+    引用名称，引用了类型相同的变量的集合。
+
+    type array-name[] = new type[size];
+
+        type 元素类型
+        size 数组存储的元素数量
+    数组通过索引来访问 从0 开始
+
+    另一种方式初始化数组 
+        type array-name[]={val1,val2,val3,...,valN};
+多维数组
+    二维数组
+    type array-name[][]=new type[size1][size2]
+不规则数组 
+    先为第一纬分配内存，然后分别为第二纬分配内存
+        int table[][]=new int[3][];
+        table[0]= new int[4];
+        table[1]=new int[3];
+        table[2]=new int[5]
+初始化多维数组
+    type-specifier array_name[][]={
+        {val,val,val,...,val},
+        {val,val,val,...,val},
+        {val,val,val,...,val},
+        {val,val,val,...,val}
+    }
+另一个数组声明语法
+    type[] var-name;
+length  
+    表示数组长度
+    多维数组 
+        表示存储的数组的个数
+for-each 
+    for(type itr-var :collection){}
+
+    多维数组
+        for(type[] itr-var :collection){
+            for(type itr-var-sub: itr-var){
+
+            }
+        }
+字符串
+    length
+    charAt(index)
+    compareTo 
+    indexOf
+    lastIndexOf
+
+    为什么使用 equal 进行比较而不是使用 == 
+     equals 比较值 ，== 比较引用对象是否相等
+
+位运算
+    位运算可以用于 整型、和字符型
+    不能用于float、double 
+    &｜！可以用于boolean

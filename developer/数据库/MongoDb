@@ -1,0 +1,27 @@
+数据库 集合 文档 
+
+命名空间  
+    数据库.集合
+
+---------
+命令
+
+insertOne 
+insertManay
+insert 
+
+deleteOne 
+deleteManay
+
+remove 
+
+drop
+
+dropData
+
+find 
+ return cursor 
+
+ $or 
+ $and 
+ 正则表达式

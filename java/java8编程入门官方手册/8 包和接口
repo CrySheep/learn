@@ -1,0 +1,56 @@
+使用包
+理解包如何影响访问
+protected修饰符
+导入包
+了解java的标准包
+理解接口的基础知识
+实现接口
+应用接口引用
+了解接口变量
+扩展接口
+创建默认和静态接口方法
+
+
+包：
+    目的
+        1 提供把相关程序段组织成一个单元的机制
+        2 参与了java的访问控制机制
+            包私有 
+                只能被包里的访问
+    默认包
+    pacakge 
+    目录结构和包名完全一致
+    包和classpath 
+        当前的工作目录（包含子目录）
+        Classpath 环境变量
+        javac 或java  中通过 -classpath 指定
+    访问控制
+        private 本类
+        默认 本包
+        protected 本包和子类
+        public 所有
+    导入包
+        import
+            全路径
+            *
+    java 类库中的包
+        java.lang 通用类
+        java.io     包含io类
+        java.net    包含网络支持
+        java.applet 包含创建applet的类
+        java.awt 包含支持 abstract windows tookit 类
+
+    接口
+        interface 
+        把接口和实现完全分开
+        JDK8 接口默认方法
+        接口方法
+            默认 public 
+        接口变量
+            默认public static final
+        实现接口
+            implement
+            实现多个
+                , 分割
+        接口扩展
+            extends

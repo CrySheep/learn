@@ -1,0 +1,146 @@
+internet
+    安全性
+    可移植性
+
+字节码
+    javac 编译产物
+    虚拟机指令 解释型
+    HotSpot -> JIT
+
+servlet
+    动态扩展web服务器功能
+
+主要术语
+    简单 simple 
+    安全 secure
+    可移植 Portable
+    面向对象 object - oriented
+    健壮 robust 
+    多线程 Mutithreaded
+    体系结构中立 Arechitecture-Neutral 
+    解释型 Interpreted 
+    高性能 High Performance 
+    分布式 Distributed 
+    动态 Dynamic
+
+    简单 安全 健壮 可移植
+    面向 中立 多线程
+    解释 高性能 动态 分布
+
+
+
+
+    面向对象 OOP 
+        结构化程序设计的思想精华
+        围绕数据（反： 围绕代码）
+        三大特性：
+            封装 encapsulation
+            继承 inheritance
+            多态 polymorphisnm
+
+                封装 
+                    将代码与数据结合起来，不被外界干扰滥用的程序机制
+                    访问控制 私有  公有
+                    基本单位 类
+                        类
+                            成员
+                                数据  成员变量 或 实例变量
+                                代码  成员方法 或方法
+                多态
+                    允许用一个接口访问一类动作的特性
+                    减少程序复杂度
+                继承
+                    一个对象获得另一个对象的属性的过程 extends
+    数据类型
+        8种 
+            boolean 
+            char 
+            byte short int long 
+            float double 
+
+            boolean 
+            byte 
+            short  char 
+            int float 
+            long double 
+    控制语句
+        条件
+
+            if else 
+            if elseif
+
+            switch()
+                case: 
+                    break;
+                default:
+            
+
+        循环
+            for 
+            foreach    for(int a  in  as)
+
+            while(){}
+
+            do{}while()
+        < > = <= >= != ==
+
+    代码块 {} 
+    语句结束 ;
+    关键字  
+
+        package xxxx 
+
+        import xxxx
+        import static
+        public interface 
+        public enum
+
+        public class xxxx extends xxx implements iiii {
+            public /protected / private static final  boolean byte short char int long float double 
+            navicate 
+            transient 
+            volatile 
+
+            public xxx(){
+                super()
+                this.
+            }
+            pubic void 
+            public synchronized 
+            public AAA name() throws {
+                new 
+                assert
+                if else
+                switch case break; default  
+                while 
+                do while 
+                for  in
+                    continue 
+                try{
+
+                }catch(){
+                    throw
+                }finally {}
+                instanceof
+                strictfp 
+                return 
+            }
+
+        }
+
+        goto const 
+        true false null  java定义值
+    标识符
+        方法、变量或其他起名
+        变量
+            字符 _ $ 
+            字符 _ $ 数字
+        不能：
+            关键字 标准方法名 （println ）
+        
+    类库 
+
+
+            
+
+

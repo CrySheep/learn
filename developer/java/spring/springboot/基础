@@ -1,0 +1,208 @@
+启动类
+@SpringBootApplication
+public class ReadingListApplication{
+    public static void main(String[] args){
+        SpringApplication.run(ReadingListApplication.class,args);
+    }
+}
+
+@SpringBootApplication
+    @Configuration
+        java 配置bean
+    @ComponentScan
+        启用组件扫描
+    @EnableAutoConfiguration 
+        启动在自动装配
+
+
+
+-----------
+gradle bootRun
+gradle build 
+
+
+springboot 类测试  
+
+@RunWinth(SpringJunit4ClassRunner.class)
+@SpringApplicationConfiguration(classes=ReadingListApplication.class)
+@WebAppConfiguration 
+public class ReadingListApplicationTests{
+    @Test 
+    public void contextLoads(){
+
+    }
+}
+
+@SpringApplicationConfiguration 
+    从ReadingListApplication 配置类加载上下文
+
+----------------
+
+配置应用程序属性
+application.properties
+
+----------------------------
+
+
+构建 
+maven 
+org.springframework.boot:spring-boot-maven-plugin  
+
+打包成一个可执行的超级jar——将项目的class文件、相关依赖jar文件,配置文件打包到一个jar文件中进行发布
+
+------------------------------
+起步依赖
+
+SpringBoot 提供总舵起步依赖降低项目依赖的复杂度。
+本质Maven 项目对象模型 Project Object Model POM,定义了对其他库的传递依赖。
+
+gradle  
+dependencies(
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "com.h2database:h2"
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+)
+
+gradle dependencies 
+mvn dependency:tree 
+
+排除依赖  
+complie("org.springframework.boot:springframework-boot-starter-web"){
+    exclude group:'com.fasterxml.jackson.core'
+}
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+
+最近依赖，maven 会优先使用本项目的依赖
+
+gradle 会使用较高版本，有时需要用 exclude 排除
+
+
+---------------------------------------------
+自动配置
+SpringBoot
+spring-boot-autoconfigure jar 包
+
+条件话注解  
+@Conditional
+@ConditionalOnBean 
+@ConditionalOnMissingBean 
+@ConditionalOnClass
+@ConditionalOnMissingBeanClass 
+@ConditionalOnExpression 
+@ConditionalOnJava 
+@ConditionalOnJndi
+@ConditionalOnProperty
+@ConditionalOnResource 
+@ConditionalOnWebApplication 
+@ConditionalOnNOtWebApplication
+
+
+
+    ---------
+        springMvc /static /public /resource
+    ---------
+-------------------------
+自定义配置
+
+获取属性
+    1、命令行参数
+    2、java:/comp/env里的jndi属性
+    3、JVM系统属性
+    4、操作系统环境变量
+    5、随机生成的带有random.*前缀的属性（在设置其他属性时，可以引用他们，比如${random.long}
+    6、应用程序意外的application.properties或application.yml文件
+    7、打包在应用程序内的application.properties或application.yml文件
+    8、通过@PropertySource 标注的属性源
+    9、默认属性
+
+    优先级从高到低
+
+    application 文件 位置
+        1、外置，在相对于应用程序运行目录的/config子目录里
+        2、外置，在应用程序运行牡蛎里
+        3、内置，在config包内
+        4、内置，在classpath 根目录
+        优先级从高到低
+
+
+
+        日志配置 
+
+        logging: 
+            level: 
+                root: WARN 
+                org: 
+                    springframework:
+                        security:DEBUG
+        或 
+        logging: 
+            level:
+                root:WARN
+                org.spring.security: DEBUG
+        
+        数据库配置：
+            spring: 
+                datasource:
+                    url: jdbc:mysql://localhost/readingList
+            
+            spring 
+                datasource:
+                    url:jdbc:mysql//localhost/readingList 
+                    driver-class-name: com.mysql.jdbc.Driver 
+            
+            spring 默认会根据连接判断驱动
+
+            data source 默认使用tomcat 
+                HikariCP
+                Commons DBCP
+                Commons DBCP 2
+            spring: 
+                datasource:
+                    jndi-name: xxxxxxx
+开启配置属性
+@ConfigurationProperties 
+@EnableConfigurationProperties 
+
+springboot 自动配置后面的全部配置类都已经加上了@EnableConfigurationPRoperties 注解。
+驼峰规则的属性会自动和使用连字符或下划线的属性关联起来
+
+
+        
+    
+
+
+
+
+
+
+
+---------------------
+LDAP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

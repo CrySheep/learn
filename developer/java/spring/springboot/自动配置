@@ -50,3 +50,63 @@ Spring Boot能从多种属性源获得属性
         (2) 外置，在应用程序运行的目录里。
         (3) 内置，在config包内。
         (4) 内置，在Classpath根目录。
+
+自动配置
+@EnableAutoConfiguration  启动自动配置
+EnableAutoConfigurationImportSelector
+
+EnableAutoConfiguration.class
+
+
+MATA-INF/spring.factories 
+properties 对象  
+
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\
+org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
+
+
+@EnableConfigurationProperties()
+@Conditional 
+@Configuration 
+
+@Bean 
+@ConfigurationProperties(prefix=)
+
+
+@Conditional 
+
+@ConditionalOnJava
+@ConditionalOnBean 
+@ConditionalOnMissingBean
+@ConditionalOnExpression 
+@ConditionalOnClass 
+@ConditionalOnMissingClass
+@ConditionalOnSingleCandidate 
+@ConditionalOnPrperty
+@ConditionalOnResource
+@ConditionalOnWebApplication 
+@ConditionalOnNoWebApplication 
+@ConditionalOnJndi
+
+
+
+mybatis starter 
+
+spring.factories MybatisAutoConfiguration , MybatisProperties
+
+
+starter 目录结构 
+    两个项目 
+        空项目 
+            mtbatis-spring-boot-starter 依赖自定义配置项目
+        具体实现定义配置的项目                  
+            mybatis-spring-boot-autoconfigure
+
+
+
+
+
+
+

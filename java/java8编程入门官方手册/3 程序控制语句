@@ -1,0 +1,28 @@
+从键盘输入字符
+if语句
+switch 语句
+for 循环
+while 循环
+do-while循环
+强制类型转换
+表达式中的类型转换
+break 
+continue
+嵌套循环
+
+
+System.in 
+System.out 
+System.read()
+
+if(){}else{}
+if(){if(){}}
+if-else-if 
+switch 
+    支持类型  byte short int char ；String 
+
+break lablel;
+for(){
+one:{}
+    break:one
+}

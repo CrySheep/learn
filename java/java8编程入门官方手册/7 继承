@@ -1,0 +1,65 @@
+理解继承的基础知识
+调用超类构造函数
+super访问超类成员
+创建多级层次结构
+了解何时调用构造函数
+理解子类对象的超类引用
+重写方法
+使用重写方法实现动态方法分配
+使用抽象类
+使用final
+了解Object 类
+
+被继承类  超类 父类
+继承类 子类
+
+关键字 extends
+只能指定一个超类
+
+private 
+
+构造函数和继承
+    超类的构造函数构造超类部分，子类的构造函数构造子类部分
+super 关键字
+    调用构造函数
+        super(parameter-list)
+        必须是构造函数的第一句
+    访问超类成员
+        super.member
+构造顺序
+    从超类到子类
+方法重写
+    当子类与其超类中的方法具有相同的返回类型和签名时，就称为重写
+重写与多态
+    动态方法分配
+        通过超类引用调用被重写方法时，java会根据在调用发生时引用的对象的类型来判断所要执行的方法。
+抽象类
+    抽象方法
+        abstract 方法修饰
+            abstract type name(parameter-list)
+final 关键字
+    防止重写
+    防止继承
+    对数据成员使用final
+        值不能改变
+    形参和局部变量
+
+Object 
+    所有类的隐式超类
+    clone
+    equal
+    getClass
+    hashCode
+    toString 
+
+    final
+        finalize
+        wait
+        notify
+        notifyAll
+        
+
+
+
+
+

@@ -1,40 +1,32 @@
-模块
-    根模块
-        appmodule
-    特性模块
-    @NgModule()
-组件
-    类
-    html模版
-    @Component()
-组建
-    模版
-        html 和 angular 标记
-    指令
-    服务
-        @Injectable()
-        依赖注入
-            组建把服务委托给服务，保持组件精简和高效
-    数据绑定
-        事件绑定
-        属性绑定
-    
-路由
-    Router 模块提供了一个服务
-    工作模式
-        地址栏输入url
-        点击连接
-        浏览器前进后退
-    道涵路径和组件关联
 
 
-模块
+
+2.Angualr的八大组成部分并简单描述
+
+    答案:model是Angular开发中的基本单位,是一个容器,可以包含组件、指令、管道等
+
+    Components是可被反复使用的带有特定功能的视图
+
+    Templates  是经过指令和管道、组件等增强过的html
+
+    Bindings     结合着事件绑定   属性绑定  双向数据绑定等扩展html的功能
+
+    Directives分为结构性和属性型指令还有其他模块中比如路由模块中的指令等,
+
+    主要是增强html.
+
+    Pipes    可以对数据做一个筛选、过滤、格式化从而得到目的数据
+
+    Service  将组件、应用中的可共用的部分,比如数据或者方法等  封装成服务以方便服用
+
+    DependencyInjection  依赖注入
+介绍一下angular的模块
     根模块
         AppModule (app.module.ts)
     特性模块
         子模块
     
-    @NgModule 元数据
+    @NgModule 元数据 包含哪几个，分别什么用
         declarations
             可声明对象。当前模块的组件、指令、管道
         exports
@@ -46,25 +38,176 @@
         bootstrap
             主视图，根组件。根模块才设置
 
-    组件
-        一个模块
-            一个根组件
-                多个其他组件
-        视图：
-            组件和模版
-            宿主视图
-                创建组件时与宿主视图关联
+angular 中指令是什么？
+指令可以分为哪两种？
 
-    库模块
-        @angular 前缀
-        npm install 
-        import
-            javascript
-            导入装饰器
-                import{Component} from '@angular/core';
-            导入模块
-                import{BrowserModule} from '@angular/platform-brower';
 
-            angular 
-                imports[BrowserModule];
-                
+    内置指令 
+        NgClass 
+        NgStyle 
+        NgModel 
+    内置结构指令 
+        NgIf 
+        NgFor 
+        NgSwitch 
+    
+4)Angular 7中的结构指令和属性指令有什么区别？
+
+    结构化指令用于通过删除和添加DOM元素来更改DOM布局。这些指令在更改视图结构方面要好得多。结构指令的示例是NgFor和Nglf。
+
+    属性指令用作元素的特征。例如, 模板”语法”指南中的内置NgStyle之类的指令是属性指令
+
+其中常用的是哪些？
+
+8、ng-if 跟 ng-show/hide的区别有哪些？
+    ng-if 在后面表达式为 true 的时候才创建这个 dom 节点，ng-show 是初始时就创建了，用 display:block 和 display:none 来控制显示和不显示。
+    ng-if 会（隐式地）产生新作用域，ng-switch 、 ng-include 等会动态创建一块界面的也是如此。
+
+
+
+3.Angular中常见的生命周期的钩子函数?
+
+    ngOnChanges:
+
+        当 Angular 设置或重新设置数据绑定的输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges 对象
+
+        在 ngOnInit() 之前以及所绑定的一个或多个输入属性的值发生变化时都会调用。
+    注意，如果你的组件没有输入，或者你使用它时没有提供任何输入，那么框架就不会调用 ngOnChanges()。
+
+    ngOnInit:
+
+        在 Angular 第一次显示数据绑定和设置指令/组件的输入属性之后，初始化指令/组件。 
+
+        在第一轮 ngOnChanges() 完成之后调用，只调用一次。
+
+    ngDoCheck：
+        检测，并在发生 Angular 无法或不愿意自己检测的变化时作出反应。
+
+        紧跟在每次执行变更检测时的 ngOnChanges() 和 首次执行变更检测时的 ngOnInit() 后调用。
+    每次更改检测运行时,会被调用。
+
+    
+
+    ngAfterContentInit:
+
+        第一次 ngDoCheck() 之后调用，只调用一次。
+
+        第一次 ngDoCheck() 之后调用，只调用一次。
+
+    ngAfterContentChecked:
+        每当 Angular 检查完被投影到组件或指令中的内容之后调用。
+
+        ngAfterContentInit() 和每次 ngDoCheck() 之后调用
+
+    ngAfterViewInit:
+        当 Angular 初始化完组件视图及其子视图或包含该指令的视图之后调用。
+        第一次 ngAfterContentChecked() 之后调用，只调用一次。
+    ngAfterViewChecked：
+        每当 Angular 做完组件视图和子视图或包含该指令的视图的变更检测之后调用。
+        ngAfterViewInit() 和每次 ngAfterContentChecked() 之后调用。
+    ngOnDestroy:
+        每当 Angular 每次销毁指令/组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。 
+        
+        在 Angular 销毁指令或组件之前立即调用。
+
+4.Angular中路由的工作原理
+
+    Angular应用程序具有路由器服务的单个实例,并且每当URL改变时,相应的路由就与路由配置数组
+
+    进行匹配。在成功匹配时,它会应用重定向,此时路由器会构建ActivatedRoute对象的树,
+
+    同时包含路由器的当前状态。在重定向之前,路由器将通过运行保护(CanActivate)
+
+    来检查是否允许新的状态。Route Guard只是路由器运行来检查路由授权的接口方法。
+
+    保护运行后,它将解析路由数据并通过将所需的组件实例化到<router-outlet></router-outlet>
+
+    来激活路由器状态。
+
+1、常用管道
+
+　　date：日期格式化
+
+　　currency：货币 
+
+　　uppercase：大写
+
+　　lowercase：小写
+
+　　limitTo（限制数组或字符串长度）
+
+　　orderBy（排序）
+
+　　number（格式化数字，加上千位分隔符，并接收参数限定小数点位数）
+
+　　filter（处理一个数组，过滤出含有某个子串的元素）
+
+　　json（格式化 json 对象）
+
+如何自定义管道
+    @Pipe({name: 'exponentialStrength'})
+    export class ExponentialStrengthPipe implements PipeTransform {
+    transform(value: number, exponent?: number): number {
+        return Math.pow(value, isNaN(exponent) ? 1 : exponent);
+    }
+    }
+
+数据绑定有那几中方式
+    差值表达式
+        {{expression}}
+
+        单向
+        从数据源
+        到视图
+    事件
+        从视图到数据源的单向绑定
+    双向绑定
+        双向 
+            [(target)]="expression" bindon-target
+
+    []
+
+    双向绑定原理：
+        双向绑定工作原理
+
+        为了使双向数据绑定有效，@Output() 属性的名字必须遵循 inputChange 模式，其中 input 是相应 @Input() 属性的名字。例如，如果 @Input() 属性为 size ，则 @Output() 属性必须为 sizeChange 。
+        后面的 sizerComponent 具有值属性 size 和事件属性 sizeChange。 size 属性是 @Input()，因此数据可以流入 sizerComponent 。 sizeChange 事件是一个 @Output() ，它允许数据从 sizerComponent 流出到父组件。
+        接下来，有两个方法， dec() 用于减小字体大小， inc() 用于增大字体大小。这两种方法使用 resize() 在最小/最大值的约束内更改 size 属性的值，并发出带有新 size 值的事件。
+
+
+    自定义双向绑定
+          @Input()  size: number | string;
+          @Output() sizeChange = new EventEmitter<number>();
+
+介绍一下angular 的依赖 注入  
+    @Injectable({
+    providedIn: 'root',
+    })
+
+    服务提供者
+
+    构造函数
+angular 怎么从 低版本升级到高版本
+
+    ng update @angular/cli @angular/core
+
+1.Aangular中组件之间通信的方式
+
+    答案:Props down
+
+    1.调用子组件,通过自定义属性传值
+
+    2.子组件内部通过Input来接收属性的值
+
+    
+
+    Events  up 
+
+    1.在父组件中定义一个有参数的方法
+
+    2.调用子组件时,绑定自定义事件和上一步方法
+
+    3.子组件内部通过Output和EventEmitter来触发事件并传值.
+
+
+

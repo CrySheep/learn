@@ -1,1 +1,20 @@
 final 的用途
+    final 修饰基本类型，表示值不变；修饰对象时，指向的对象不能变。
+    修饰类或方法，阻止继承。修饰类时，所有方法都默认为final
+
+    String 
+    final 域初始化，定义时直接赋值或构造函数，静态块中；
+
+    接口中的域默认为i public static final 
+    捕获多个参数，异常参数默认为final 
+
+    Modifier isFinal 
+
+    声明为final 的常量 为字面量
+
+    static final 
+        准备阶段被设为真实值（加载、验证、准备、解析、初始化、使用、卸载）
+        编译时生成 ConstantValue
+
+
+

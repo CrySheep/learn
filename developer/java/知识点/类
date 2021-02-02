@@ -1,6 +1,53 @@
 类可以实现多个接口吗
+    可以
 继承和聚合的区别
+    继承通过extends 关键字来实现，表示 is-a 关系，表示更具体
+    聚合通过把一个类型定义为另一个类型的属性实现，表示 has-a 关系，表示拥有某个部分。
+        组合，强依赖的聚合，部分不能脱离整体单独存在
+
+    泛化、聚合、组合
 如何在父类中为子类自动完成所有的hashCode 和equals 实现？这么做有什么优劣
+    按规则覆盖equals 和hashCode 方法
+        自反性。x.equals(x)
+        对称性。y.equals(x) x.equals(y)
+        传递性。x.equals(y)  y.equals(z) 则 x.equals(z)
+        一致性。x,y 没有被修改，x.equals(y) 结果不变
+        非空x，x.equals(y) false
+
+        实现：
+            使用 == 检查是否指向对象的一个引用
+            2、使用 instanceof 检查类型是否正确
+            3、把实参转换到正确的类型
+            4、对该类中每一个“关键域”，检查实参中的域与当前对象中对应的域值是否匹配
+            5、检查是否符合对称性、传递性、一致性
+
+        重写hashcode 约定
+            1、equals 比较的信息没有做修改，hashcode 结果一致
+            2、两个对象equals，hashcode 相等
+            3、不想等的对象，不要求产生不同的hashcode
+
+            处方：
+                1、把某个非零常数值，比如说17，保存在一个result 的int 类型的变量中
+                2、对于对象中每一个关键域f（指equals方法中考虑的每一个域），完成以下步骤
+                    a 为该域计算int型散列
+                        boolean 烈性  f?0:1
+                        byte\char\short类型 ，（int）f
+                        long 类型 （int）（f^f>>>32）
+                        float 类型  Float.floatToIntBits(f)
+                        double 类型 Double.doubleToLongBits(f) ,调用long 规则
+                        对象引用，且equals 方法通过递归调用equals的方式来比较这个域，则通用对这个域递归调用hashcode。如果要求一个更为复杂的比较，则为这个域计算一个“规范表示”，然后针对这个范式表示调用hashcode。如果值为null 返回0
+                        数组，则把每一个元素当作单独的域来处理。
+                    b 按照下面的公示，把步骤a中计算得到的散列码c组合到result中：
+                        result=37*result+c 
+                3 返回result
+                4 写完了hashcode 方法之后，问自己“是否相等的实例具有相等的散列码”。如果不是的化，找出原因，并修正错误
+                        
+
+
+    优势：子类无需重新定义equals 和hashCode 方法
+    劣势：存在不满足的情况，需要重写
+
+
 深拷贝和浅拷贝区别
 Object类的hashCode 和equals 方法的理解，在什么场景下需要重新实现这两个方法
 a.hashcode()有什么用，与a.equals(b) 有什么关系

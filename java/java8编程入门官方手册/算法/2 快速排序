@@ -1,0 +1,51 @@
+快速排序
+    选取分割值
+    大于分割值的排左边，小于分割值的排右边
+    继续分割直到排序完成
+
+
+    选择的比较直最好位于中间，最坏情况位于末端
+
+class Quicksort{
+    public static void qsort(char items[]){
+        sq(items,0,items.length-1);
+    }
+    /**
+    * 取left 和 right 中间的值 x
+    * 从 left 开始往右找大于x 的值 y1
+    * 从 right 开始往左找小于x 的值 y2
+    * 交换 y1 和y2 的值
+    * 直到 i=j
+    private static void qs(char items,int left,int right){
+        int i,j;
+        char x,y;
+        i=left;j=right;
+        x=items[left+right/2];
+
+        do{
+            // 从左边往右找到大于x的值
+            while((item[i]<x)&&(i<right))i++;
+            // 从右边往左找到小于 x的值
+            while((item[j]<x)&&(j>left))j--;
+            // 交换
+            if(i<=j){
+                y=items[i];
+                items[i]=item[j];
+                items[j]=y;
+                i++;j--;
+            }
+        }while(i<=j);
+        if(left<j) qs(items,left,j)
+        if(i<right) qs(items,i,right);
+    }
+}
+d x a r p j i 
+0～6
+x=r
+x  i 
+d i a r p j x
+
+3 
+5
+d i a j p r x 
+

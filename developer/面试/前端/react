@@ -1,0 +1,181 @@
+箭头函数
+class 
+let 
+const 
+
+什么是react？
+React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”
+
+
+let 和const 的区别
+
+
+React 组件类
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
+
+当数据发生改变时，React 会高效地更新并重新渲染我们的组件
+
+一个组件接收一些参数，我们把这些参数叫做 props（“props” 是 “properties” 简写）
+
+大多数的 React 开发者使用了一种名为 “JSX” 的特殊语法，JSX 可以让你更轻松地书写这些结构。
+
+React.createElement('div')。上述的代码等同于：
+return React.createElement('div', {className: 'shopping-list'},
+  React.createElement('h1', /* ... h1 children ... */),
+  React.createElement('ul', /* ... ul children ... */)
+);
+
+
+
+
+
+
+初始代码 src/index.js
+你可以看到我们有三个 React 组件：
+Square
+Board
+Game
+
+<Square />  调用render方法
+
+<Square value={i}/>
+this.proprs.value
+
+
+箭头函数
+<button className="square" onClick={function() { alert('click'); }}>
+
+构造函数
+constructor (props){
+    super(props);
+    this.state={
+        values:null,
+    };
+}
+
+onClick={() => this.setState({value: 'X'})}
+
+React 组件中，构造函数必须以 super(props) 开头。
+
+
+proprs
+state 
+
+
+onEvent
+handleEvent
+
+
+.slice()  创建副本
+
+两种改变数据的方式 
+    直接修改变量值
+    新数据替换旧数据
+        好处：
+            简化复杂的功能
+                不可变形使得复杂的特性更容易实现。回退功能等
+            跟踪数据的变化
+                新对象与老对象进行对比
+            确定在React中何时重新渲染
+函数组件：
+
+function Square(props)
+
+
+var newPlayer = Object.assign({},player,{score:2})
+
+对象展开语法 var newPlayer={...player,score:2}
+
+concat push 
+
+数组  map  
+
+React 元素   React 组件  props  status 
+
+
+元素和组件  
+
+JSX  
+生成react 元素  渲染成Dom 元素 
+
+
+ReactDOM.render()
+编译
+React.createElement() 
+
+创建对象
+const element={
+    type:'h1',
+    props:{
+        className:'greeting',
+        children:'Hello ,world'
+    }
+}
+
+元素  
+
+极小普通对象  
+React DOM 负责更新DOM
+不可变 
+
+
+
+React 只更新它需要更行的部分
+
+
+组件
+将UI 拆分成独立可复用的代码片段
+接收proprs  返回 react 元素
+
+es6 class 定义组件
+class  Welcome extends React.Component {
+    render(){
+        return <h1> Hello,{this.props,name}</h1>
+    }
+} 
+
+
+    属性 attributes、子组件 children 转换为单个对象传递给组件   props 
+
+组件以大写开头  元素以小写开头
+
+所有React 组件都必须像纯函数于洋保护它们的props 不被更改 
+
+    state 允许更改 
+
+state 
+    私有
+生命周期
+    生命周期方法
+        componentDidMount()
+        WillUnmount()
+    setStatus
+        直接修改State 不会重新渲染
+        使用 setStatus 
+
+
+    state 会作为proprs 的属性向下传递
+
+    this.state.date 
+        this.props.date //子组件
+
+
+
+
+
+
+
+

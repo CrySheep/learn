@@ -1,0 +1,24 @@
+快速排序、shaker 排序、shell 排序
+最简单、最易理解的方法是，冒泡排序
+
+冒泡排序
+    重复比较
+    相邻的元素进行交换
+    小值移动到一段，大值移动到另一段
+
+public void sort(int[] nums){
+    int a,b,t;
+    int size; 
+    size = nums.length;
+    for(a=1;a<size;a++){
+        for(b=size-1;b>=a;b--){
+            if(nums[b-1]>nums[b]){
+                t=nums[b-1];
+                nums[b-1]=nums[b];
+                nums[b]=t;
+            }
+        }
+    }
+
+    
+}

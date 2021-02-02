@@ -4,5 +4,3 @@ ObjectMapper mapper = new ObjectMapper();
 mapper.configure(DeserizationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
 JavaType javaType = mapper.getTypeFactory().constructCollectionType(List.class,User.class);
 List<User> list2=mapper.readValue(json,javaType);
-
-s

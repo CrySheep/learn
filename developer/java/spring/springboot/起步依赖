@@ -1,4 +1,4 @@
-maven 项目对象模型 pom 
+maven 项目对象模型 Project Object Model 
 
 屏蔽起步以来
 <dependency>
@@ -8,3 +8,4 @@ maven 项目对象模型 pom
         <groupId>com.fasterxml.jackson.core</groupId>
     </exclusion>
 </dependency>
+

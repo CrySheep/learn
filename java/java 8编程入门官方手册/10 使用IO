@@ -1,0 +1,310 @@
+理解流
+字节流和字符流的区别
+字节流
+字符流
+预定义流
+使用字节流
+使用字节流的文件IO
+使用try-with-resources 自动关闭
+读取和写入二进制数据
+使用随机访问文件
+使用字符流
+使用字符流的文件io
+封装器
+
+
+流
+    产生或使用信息的抽象
+    流与物理设备相连
+字节流和字符流
+    字节流处理字节
+    字符流处理字符，使用Unicode
+字节流
+    InputStream 
+        BufferedInputStream 输入流缓冲
+        ByteArray   从字节数组读取的输入流
+        DataInputStream 包含用于读取基本数据类型方法的输入流
+        File 从文件读取
+        Filter  实现InputStream
+        Object 对象的输入流
+        PipedInputStream    输入管道
+        PushbackInputStream 允许字节返回到输入流
+        Sequence 连个或多个输入流的组合
+    OutputStream
+        Buffered    输出缓冲
+        ByteArray   写入字节数组的输出流
+        DataOutput  包含用于写入基本数据类型方法的输出流
+        File        写入文件
+        Filter  实现OutputStream 
+        Object  对象的输出流
+        Piped 输出管道 
+        PrintStream print 和println 的输出流
+
+字符流
+    Reader 
+        Buffered 输入字符流缓冲
+        CharArray 从字符数组读取
+        FileRead 从文件读取字符
+        Filter  过滤
+        InputStreamReader 将输入字节流转换为输入字符流
+        LineNumberReader 统计行数的输入字符流
+        PipeReader 管道输入字符流
+        PushbackReader 允许字符返回到输入流
+        StringReader 字符串的读入流
+    Writer
+        Buffered 写出字符缓冲
+        CharArray 向字符数组写出字符
+        FileWrite 向文件写出字符
+        Filter
+        OutputStreamWriter 字符转换为字节输出流
+        Pipe    管道写出字符
+        PrintWriter 包含print 和println 的写出字符串字符流
+        String 写出字符流
+预定义流
+    java.lang.System
+        in 
+        out
+        err 
+    
+        out 
+            标准输出流，默认写出到控制台
+            PrintStream
+        in 
+            标准写入流，默认从键盘读入
+            InputStream 
+        err 
+            标准错误流，默认写出控制台
+            PrintStream
+字节流
+    InputStream 
+        avaliable 返回当前可读取的输入字节流
+        close()
+        mark(numBytes) 在输入流的当前放置标记，在读入numbytes 个字节前有效
+        markSupport 是否支持mark/rest 
+        read 读入下一个字节，-1表示末尾
+        read(byte[]) 读入字节到缓冲区，返回实际读取的字符；-1表示末尾
+        read(byte[],int ,int)读入字节到缓冲区，从offset 位置开始
+        reset 重置指针到标志位置
+        skip 跳过字节，返回实际跳过 
+    OutputStream
+        close 
+        flush 把已缓存的字节流发送到目标
+        write(int) 写出字节
+        write(byte[]) 写出字节数组
+        write(byte[],int,int) 写出字节数，从offset 开始，numByte 个
+从控制台读
+    System.in
+        回车产生一个流事件
+写出到控制台
+    System.out 
+        print /println  由 PrintStream 提供
+        PrintStream 
+            write  只写入低8位
+            printf 
+            format 
+使用字节流读写文件
+    FileInputStream 
+    FileOutputStream 
+
+    读入
+        FileInputStream 
+            FileInputStream(String fileName) throws FileNotFoundException
+            int read() IOException 
+            close  IOException 
+    写出
+        FileOutpuStream     
+            FileOutputStream(String fileName)
+            FileOutputStream(String fileName,boolean append)
+
+            write(int)
+            close 
+    自动关闭
+        try-with-resource 
+        实现AutoCloseable接口
+        closeAble extends AutoCloseable 
+
+        try(){}
+        一条语句可以管理多个资源
+        try(;){}
+读写二进制
+    DataOutputStream 
+    DataInputStream 
+
+    DataOutputStream implements DataOutput 
+        writeBoolean 
+        writeByte 
+        writeChafr 
+        writeDouble 
+        writeFloat 
+        writeLong 
+        writeInt 
+        writeShort
+
+        DataOutputSteam(OutputStream)
+    
+    DataInputStream implements DataInput 
+        以二进制格式来读取数据
+
+        readBoolean 
+        readByte
+        readChar 
+        readDouble 
+        readFloat 
+        readLong 
+        readInt 
+        readShort 
+
+        DataInputStream(InputStream )
+
+随机访问文件
+    RandomAcessFile 
+    
+        不继承 InputStream 或OutputStream 
+        实现DataInput 和 DataOutput
+
+        RandomAccessFile(String fileName,String access)
+            access: 
+                r  读 
+                w 写 
+                rw 读写
+        seek(long newPos)
+            文件开头，字节数
+
+        read 
+        write
+        read 基本数据类型
+        write 基本数据类型
+
+Console 类 
+    JDK6 
+    System.console() 
+字符流
+    Reader 
+    Writer  
+    
+    Reader  
+        close 
+        mark(numChars)
+        markSupported()
+        read 
+        read(cahr[])
+        abstract int read(char[],int,int)
+        read(charBuffer) 尝试填充buffer指定的缓冲区，返回成功读取的字符数，当达到末尾时返回-1.CharBuffer 是一个封装字符序列（如字符串）的类
+        ready 如果下一个输入请求不等待就返回true，否则返回false
+        skip 
+        reset 
+    Writer 
+        append(char) 末尾追加
+        append(harSequence)
+        append(CharSequence ,int ,int)
+        close 
+        flush 
+        write (int)
+        write(char[])
+        write(String)
+        write(String , int ,int )
+
+    字符流控制台
+        BufferedReader
+        首先 构造InputStreamReader
+
+        InputStreamReader(InputStream )
+        BufferedReader(Reader inputReader)
+            read
+            read(char[])
+            read(char[],int,int)
+
+            readLine()
+    字符流写出控制台
+        PrintWriter 
+            PrintWriter(OutputStream ,boolean flushingOn);
+            println 
+    字符流操作文件
+        优势： 直接操作Unicode 字符
+        FileRead 、 FileWriter 
+        
+        FileWriter 
+            FileWriter(String fileName)
+            FileWriter(String fileName,boolean append)
+
+            implements OutputStreamWriter ,Writer 
+        FileReader
+            FileReader(String fileName)
+                implements InputStreamWriter,Reader 
+    NIO 
+        JDK4 
+        支持基于通道的IO操作
+        包：
+            java.nio 
+            java.nio.channels 
+            java.nio.charset 
+        基础
+            缓冲区 buffer
+                存储数据
+            通道 channel
+                通向一台i/o（如文件或套接字）设备的开放连接
+
+            其他连个：
+                charset 
+                    编码方式
+                selector
+                    支持基于键盘的无阻塞多重i/o 
+                    最适用于套接字的通道
+        JDK7
+            NIO2.0 
+            新增3个包
+                java.nio.file 
+                java.nio.file.attribute
+                java.nio.file.spi 
+            新增了一些类、接口和方法
+            直接支持流io
+    封装器
+        Double、Float、Long、Integer、Short、Byte、Character、Boolean 
+        转换方法
+         parseDouble 、parseFloat、 parseLong、parseInt、parseShort、parseByte
+    
+    java.util.Scanner
+        Scanner(InputStream from) 
+        hasNext基本数据剋需半个
+        next基本数据类型
+
+
+自测题
+    1 为什么java 即定义了字节流又定义了字符流
+        字节流是java定义的原始流，主要用语言二进制io，支持随机访问文件。字符流是针对Unicode优化的
+    2 既然控制台输入和输出是基于文本的，那么为什么java还要适用字节流来进行控制台输入输出
+        预定义的流System.in、System.out和System.err 是在java 添加字符流之前定义的。
+    3 写出如何打开文件来读取字节
+        FileInputStream fin = new FileInputStream("test");
+    4、写出如何打开文件来从读取字符
+        FileReader fr = new FileReader("test");
+    5、写出如何代开文件来进行随机访问
+        RandomAccessFile randFile =RandomAccessFile("test","rw");
+    6、如何将字符串转换为对应的二进制形式
+        使用封装器
+    7、编写一个复制文本文件的程序。在处理过程中，将所有的空格转换为连字字符
+
+    8、重写自测题7中描述的程序，以使其适用字符流类。这一次，适用try-with-resource 语句来自动关闭文件
+    9、System.in 是什么类型的流
+        InputStream
+    10 当到达流的末尾时，InputStream的read()方法返回什么
+        -1
+    11 读取二进制数据的是什么类型的流
+        DataInputStream
+    12 Reader 和Writer 位于_______类层次结构的顶端
+        基于字符的io类
+    13 try-with-resource 语句用于____________
+        自动资源管理
+    14、如何适用传统的方式关闭文件，那么在适用finally 块中关闭文件通常是一种不错的方法，对吗
+        对
+
+
+
+
+
+
+
+    
+
+
+

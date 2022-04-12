@@ -1,0 +1,153 @@
+linux 基础安全介绍
+    ssh 登陆 
+
+secure shell 登陆  非对称加密
+生成密钥  ，配置ssh
+
+ssh-keygen
+
+cd /etc/ssh  
+cat ssh_config
+
+
+文件管理
+    FHS Filesystem Hierarchy Standard 文件系统结构层次
+
+
+
+    / 
+    /bin 可执行文件 ，ls命令等
+    /boot 引导文件，内核，以及initrd 等文件
+    /dev 设备文件，比如磁盘设备
+    /etc 系统范围的配置文件
+    /home 用户目录，个人用户的配置
+    /media 可以移除的媒体，cd-rom 等的挂载点
+    /lib 和/lib64 /bin 和 /sbin 中用到的哭文件存放位置
+    /mnt 临时挂载点
+    /opt 可选的应用包，一般用于存放一些直接提供二进制程序的非凯源宝
+    /proc 虚拟文件系统 
+    /root  root 用户的home目录
+    /run 存放一些pid 和 socket 文件
+    /sbin  系统的可执行文件，init mount 等
+    /sys 非FHS 标准，但大部分发型版本都有，虚拟文件系统，用来对内核和设备驱动做设置
+    /usr unix software resource ，绝大多数的程序和应用安装在这里，结构和/非常相似
+    /usr/bin
+    /usr/lib 
+    /usr/share 和计算机架构五官的一些共享资源文件
+    /usr/src源代码存放路径，如linux 内核源代码
+    /var 在程序运行中内容不断变化的文件，如日志
+    /tmp 临时文件系统，重启后内容丢失
+
+
+    一切都是文件
+
+        ls 
+        cat 
+        less 查看文件内容 
+        more 查看文件呃逆容
+        head 查看文件头部
+        tail 查看文件尾部
+        nano 编辑文件的工具
+        grep 查找文本中指定关键词的行
+
+    man  系统
+        手册系统
+       1 一般命令
+       2 系统调用
+       3 库函数
+       4 特殊文件和驱动
+       5 文件格式约定
+       6 游戏和屏保
+       7 杂项 
+       8 系统管理命令和守护进程
+
+服务与日志
+    守护程序
+
+    ssh 
+    cron 
+
+    systemd 
+    systemctl status crond
+     
+    systemctl start crond 
+    systemctl stop crond 
+    systemctl enable crond 
+    systemctl disable crond 
+    system restart crond 
+
+
+    日中
+    journalctl -u crond.service 
+    journalctl -u sshd.service 
+    journalctl -
+
+    直接查看日志 
+        /var/log/
+            message
+            lastlog
+            yum.log
+            cron 
+            boot.log 
+            kern 
+
+操作系统
+    Debian 系
+        Debian 
+            特点：完全自由软件组成的linjux 发型版，以稳定著称  
+            apt 高级打包工具
+            dpkg  对应 deb包
+            systemd
+        Ubuntu 
+            特点： 基于 Debian ，接受私有软件，旨在提供一个更加友好的通用的桌面环境，是目前桌面用户最多的一个发行版本
+            APT 高级打包工具：software updater；ubuntu 软件中心
+            dpkg snappy
+            systemd
+
+
+    RHEL
+        Red Hat Enterprise Linux 
+            是 Red Hat 公司推出的带有商业支持的linux 发型版本，目前是基于fedora，可以使用fedora epel 的软件包
+            yum or dnf 
+            RPM 
+            systemd
+        Fedora 
+            由Fedora 社区开发，但是由Redhat 公司赞助，是RHEL的上游源码，经过Fedora 测试验证充分的技术会被加入到RHEL
+            dnf
+            RPM 
+            systemd 
+        Centos
+            基于RHEL 依赖开放源代码规定发布的源代码所编译而成，由于出自同样的源代码。因此有些要求高度稳定性的服务器以CentOS替代商业版本的 RedHat Enterprise linux使用。两者不同，在于CentOs 不包含封闭源代码软件，可以使用fedora epel  
+            yum or dnf 
+            RPM 
+            systemd 
+        Anolis OS 
+            openAnolis 社区发型的开源linux 发型版本，与centos 8 100%兼容
+            yum 
+            RPM
+            systemd 
+    LFS 
+        Arch linux 
+            滚动更新发型版本，以KISS为原则，优雅以及极简主义，希望用户去理解系统，wiki资料齐全，安装物GUI界面，有AUR仓库作为软件包补充，国内用户非常活跃 
+            pacman
+            pacman 
+            systemd 
+        Gentoo linux 
+            元发型版本，从源代码构建系统，根据自己系统的硬件制定软件包优化软件包的特性等，wiki齐全
+            emerge 
+            portage 
+            openrc 或systemd 
+    Linux From Scratch 
+        本质上是一本教科书，描述从源码构建linux 系统的方法
+        无
+        无
+        无
+    Alibaba cloud linux 2
+        为阿里云基础设施进行深度优化，在阿里云上部署性能优异
+        yum
+        RPM 
+        systemd  ，cloud-init 
+        
+
+
+    

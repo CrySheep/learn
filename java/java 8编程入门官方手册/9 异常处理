@@ -1,0 +1,157 @@
+异常的层次结构
+try catch 
+未捕获异常
+多重catch 
+嵌套 try 
+抛出异常
+了解Throwable 成员
+finally
+throws 
+了解java的内置异常
+创建自定义类
+
+层次结构
+    所有异常都派生子Throwable 的类
+        直接子类
+            Throwable 
+            Error
+                虚拟机异常
+
+            Throwable
+                子类
+                    RuntimeException 
+异常处理
+    关键字
+        try catch finally throw throws
+    异常产生：
+        1 程序内部错误，例如虚拟机异常
+        2 程序代码错误导致的标准异常
+        3 通过throw 语句手动生成的异常
+使用关键字try 和 catch 
+    try{}catch(ExceptionType1 ex){}catch(ExceptionType2 ex){}
+    jdk7
+        自动资源管理 try-with-resources
+未捕获异常的结果
+多个catch语句
+捕获子类异常
+    超类可以匹配所有子类异常
+    子类异常要放超类前面
+Throwable 
+    fillInStackTrace
+        返回一个包含完整堆栈跟踪的Throwable 对象，该对象可以被重新抛出
+    getLocalizedMessage
+        返回异常的本地描述
+    getMessage 
+        返回异常的描述
+    printStackTrace
+        方法1、显式堆栈跟踪
+        方法2、发送到指定流
+        方法3、发送到指定的writer 
+    toString 
+        返回一个异常的完整描述的String 对象，当输出一个Throwable 对象时，println 调用该方法
+finally 
+    退出try/catch 后执行
+throws 
+    如果方法产生一个自己不做处理的异常，它必须在throws 语句中声明该异常
+    ret-ExceptionType1 methodName(param-list) throws except-list{}
+    except-list 通过逗号分割
+
+    Error 和RuntimeException 子类不必在throws 列表中指定
+
+新增的三种异常功能
+    jdk7 
+        自动资源管理
+            try-with-resource 
+        多重捕获
+        final rethrow 或更精确的重新抛出
+            将可被重新抛出的异常的类型限制为相关try块抛出的检查异常（checked exception），前一catch 语句没有处理的异常，以及为形参的子类型或超类型的异常。
+            要想使用final rethrow功能，catch语句的形参必须是final。这意味着在catch块内不能为其赋值新值。
+java 内置异常
+    未检查异常 unchecked exception 
+        RuntimeException
+            ArithmeticException 运算错误，如除以0
+            ArrayIndexOutOfBoundsException 数组索引越界
+            ArrayStoreException 向类型不兼容的数组元素赋值
+            ClassCastException 无效的强制转换
+            EnumConstantNotPresentException 试图使用未定义的枚举值
+            IllegalArgument Exception   使用非法实参调用方法
+            IllegalMonitorStateException 非法的监视器操作，如等待未锁的线程
+            IllegalStateException 环境或应用程序处于不正确的状态
+            IllegalThreadStateException 被请求的操作与当前线程状态不兼容
+            IndexOutOfBoudException 某种类型的索引越界
+            NegativeArraySizeException 在负数范围内创建数组
+            NullPointException 对null 引用的无效使用
+            NunberFormateException  字符串到数字格式的无效转换
+            SecurityException   试图违反安全性
+            StringIndexOutOfBoundsException 试图在字符串外界索引
+            TypeNotPresentException 类型为找到
+            UnsupportedOperationException
+    检查异常
+        ClassNotFundException   没有找到类
+        CloneNotSupportException 试图赋值没有实现Cloneable 接口的队形
+        IllegalAccessException 访问类被拒绝
+        InstantiationException 试图创建抽象类或接口的对象
+        InterruptedException    线程已经被另一个线程中断
+        NoSunchFieldException   请求的域不存在
+        NoSunchMethodException  请求的方法不存在
+        ReflectiveOperationException 与反射又挂的异常的超类
+
+    链式异常。
+        JDK4 
+        允许将一个异常指定为另一个异常发生的条件。
+        为使用链式异常，向Throwable 添加两个构造函数和两个方法。
+            Throwable(Throwable couseExc)
+            Throwable(String msg,Throwable causeExc)
+
+            getCause()
+            initCasue(Throwable )
+自测题
+    1 位于异常层次结构顶端的是什么类
+        Throwable
+    2 简单解释一下如何使用try 和 catch 
+        try和catch 一起工作 ，代码块放在try中，catch 捕获异常
+    3 下面的代码段有什么错误
+        //...
+        vals[18]=10;
+        catch(ArrayIndexOutofBoundsException ex){
+            // handle error
+        }
+
+        catch 语句前没有try 语句
+    4 如果异常没有被捕获，将发生什么
+        如果异常没有被捕获，将会导致程序异常终止
+    5 下面的代码段有什么错误
+        class A extends Exception{
+
+        }
+        class B extends A {}
+
+        try{
+
+        }catch(A exc){}
+        catch(B exc){}
+
+        超类catch 在子类之前；因为超类会捕获所有子类
+    6 由内部catch 捕获的异常可以重新抛给外部catch吗
+        可以。
+    7 finally 代码块是程序结束前执行的最后一个代码单元，对吗。
+        错误，finally 是try 代码块终止时执行的代码
+    8 什么类型的异常必须显式地在方法的throws 子句中声明
+        除了RuntimeException 和 Error 类型的异常，都需要在throws子句中声明
+    9 下面的代码段有什么错误
+        class MyClass {}
+        throw new MyClass（）；
+        MyClass 没有扩展Throwable。只有Throwable 的子类可以由throw 抛出
+    10 在第6章 “自测题” 的第3题中创建了一个stack 类。 请向该类添加报告堆栈满和堆栈空条件的自定义异常
+    11 产生异常的三种方法。
+        jvm中的错误产生；用户程序产生；通过throw语句显式产生
+    12 Throwable 的两个直接子类是什么
+        Exception 和Error
+    13 请杰斯多重捕获功能
+        一条catch 子句捕获两个或更多异常
+    14 通常，代码应该捕获Error类型的异常吗
+        不应该
+
+
+    
+

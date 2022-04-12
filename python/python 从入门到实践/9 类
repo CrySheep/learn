@@ -1,0 +1,29 @@
+类  
+对象
+实例化
+
+class Dog():
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age 
+    def sit(self):
+
+    def roll_over(self):
+
+属性
+
+Dog('willie',6)
+
+
+继承
+    class child(parent):
+        def __init__(self,xx,xx):
+            super().__init__()
+    重写方法
+
+导入类
+    from car import Car
+    整个模块  from car 
+    一个模块多个类
+    导入所有类 from car import *
+    

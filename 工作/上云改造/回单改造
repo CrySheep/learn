@@ -1,0 +1,5 @@
+Object mapping 的技术分类：
+
+运行期 反射调用set/get 或者是直接对成员变量赋值 。 该方式通过invoke执行赋值 *，实现时一般会采用beanutil, Javassist等开源库。这类的代表：Dozer,ModelMaper
+
+编译期 动态生成set/get代码的class文件 ，在运行时直接调用该class文件。* 该方式实际上扔会存在set/get代码，只是不需要自己写了。 这类的代表：MapStruct,Selma,Orika ### 主要框架性能对比： 每秒钟执行的object mapping越多越好。

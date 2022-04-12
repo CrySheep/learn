@@ -1,0 +1,65 @@
+String  不可修改，final
+StringBuffer 可修改，final，线程安全
+StringBuilder 可修改，final，非线程安全
+CharSequence 基础接口
+codepoint 17 章  
+
+String 
+    length()
+    valueOf()
+    toString()
+    charAt()
+    getChars
+    getBytes 
+    toCharArray 
+    equals
+    equalsIgnoreCase 
+    regionMatches
+    startsWith 
+    endsWith 
+    compareTo
+    compareToIgnoreCase 
+    indexOf 
+    lastIndexOf
+    substring 
+    concat 
+    replace 
+    trim
+    valueOf(...)
+    toLowerCase
+    toUpperCase
+    join 
+s
+    codePointAt 
+    codePointBefore 
+    codePointcount
+    contains 
+    contentEquals 
+    format
+    isEmpty 
+    matches
+    offsetByCodePoints
+    replaceFirst 
+    replaceAll 
+    split
+    subSequence
+
+    Comparable<T>
+        compareTo 
+            <0 =0 >0
+
+    Locale
+
+StringBuffer
+    构造
+    StringBuffer()  16空间字符
+    StringBuffer（String) 预留16空间字符
+    length 和 capacity()
+        length 字符长度
+        capacity 已分配容量
+    
+        ensureCopacity(int minCapacity) 最小尺寸，可能大于最小值
+    insert 
+    reverse 
+    delete  deleteCharAt 
+    

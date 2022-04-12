@@ -1,0 +1,56 @@
+20210623
+python 访问操作浏览器
+    selenium模块
+
+    安装 
+        pip install selenium    
+        修改镜像 
+            默认 https://pypi.python.org/simple
+            ide
+                command +, (preference) project - Python interpreter -pip -Manage Repositories
+            全局
+                window:
+                    c:\Users\xxxxx\AppData\Roaming\pip\piip.ini 
+                        [global]
+                        index-url = xxxxx
+                        [install]
+                        trusted-host = xxxxx
+                mac 
+                    cd ~/.pip/
+                    nano pip.conf 
+                        [global]
+                        index-url = xxxx 
+                        [install]
+                        trusted-host = xxxxx
+                linux 
+                    临时 pip install pymysql -i https://xxxxxx/simple
+                    永久 
+                        mkdir/root/.pip 
+                        touch /root/.pip/pip.conf 
+                        vim pip.conf 
+                            [global]
+                            index-url=http://xxxxx/pypi/simple/
+                
+    导入 
+        from selenium import webdriver 
+    使用  
+        打开浏览器  webdriver.chrome()
+        输入url browser.get(url)
+        查找元素 browser.find_element_by_xxxx()
+        输入：element.send_keys()
+        点击按钮: element.click()
+        提交表单: element.submit()
+安装webdriver 
+    下载 :
+        http://npm.taobao.org/mirrors/chromedriver/
+        对应版本
+    拷贝
+        到chrome.exe 目录 ；设置 class path 为 chromedriver目录 
+    其他driver 类似
+运行 py 文件
+    第一行 #! python3
+    @py.exe 绝对路径 %*
+
+
+sys.argv 
+    第一个参数为文件路径

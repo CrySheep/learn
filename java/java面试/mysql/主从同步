@@ -1,0 +1,22 @@
+主从部署
+各节点数据一致
+主从同步
+
+三个线程:master( binlog dump thread)、slave(IO thread、sql
+ thread)
+
+
+ 主节点log dump 线程，当binlog 变动，log dump 读取其内容发送从节点
+ 从节点io接收binlog 内容，写入relay log 文件
+ 从节点sql线程读取relay log文件内容对数据进行重放，最终保证主从数据一致
+ ps 主节点使用 binlog +position 偏移定位主从同步位置
+
+ 问题
+    主库宕机，从库处理失败，从库升级为主库，日志丢失
+
+解决：
+    同步复制
+        所有从库完成，才返回给客户端。性能问题
+    半同步复制
+        至少一个从库确定就认为成功
+    

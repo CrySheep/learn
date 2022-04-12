@@ -1,0 +1,205 @@
+java.util 功能
+    伪随机数 日期和时间 观察事件 操作位集合 标记字符串 格式化数据类
+    集合框架
+
+类
+    AbstractMap 
+    AbstractQueue
+    AbstractSequentialList 
+    AbstractSet 
+    AbstractDeque
+    AbstractList 
+    Base64 JDK 8 
+    BitSet 
+    Calender 
+    Collections 
+    Currency
+    Date 
+    Dictionary
+    DoubleSummaryStatistics JDK8 
+    EnumMap 
+    EventLIstenerProxy 
+    EventObject
+    GregorianCalender 
+    HashMap 
+    HashSet 
+    Hashtable 
+    IdentityHashMap
+    IntSummaryStatistics JDK8 
+    LinkedHashMap 
+    LinkedHashSet 
+    LinkedList 
+    ListResourceBundle 
+    Locale 
+    LongSummaryStatistics JDK8 
+    Objects
+    Observable 
+    Optional jdk8 
+    OptionalDouble 
+    OptionalInt 
+    OptionalLong 
+    PriorityQueue
+    PropertyResourceBundle 
+    Randon
+    ResourceBundle 
+    Scanner 
+    ServiceLoader 
+    SimpleTImeZone 
+    Spliterators jdk8
+    SplitableRandom jdk8
+    Stack 
+    StringJoiner 
+    StringTokenizer
+    Timer 
+    TimerTokenizer 
+    Timer 
+    TImeZone 
+    TreeMap 
+    TreeSet 
+    UUID 
+    Vector 
+    WeakHashMap 
+
+接口
+    AbstractCollection 
+    AbstractList 
+    Collection 
+    Comparator 
+    Deque 
+    Enumeration 
+    EventListener 
+    Formattable 
+    Iterator 
+    List 
+    ListIterator 
+    Map 
+    FormattableFlags 
+    Formatter 
+    Map.Entry 
+    NavigableMap 
+    NavigableSet 
+    Observer 
+    PrimitiveInterator 
+    PrimitiveInterator.OfDouble 
+    PrimitiveInterator.ofInt 
+    PrimitiveInterator.OfLong 
+    Queue 
+    RandoAccess 
+    Properties 
+    ProperyPermission 
+    Set 
+    SortedMap 
+    SortedSet 
+    Spliterator 
+    Spliterator.OfDouble 
+    Spliterator.ofInt
+    Spliterator.OfLong 
+    Spliterator.OfPerimitive 
+
+
+
+    集合接口
+        Collection 
+        Deque 
+        List 
+        NavigableSet 
+        Queue 
+        Set 
+        SortedSet 
+
+        使用
+        Comparator 
+        RandomAccess 
+        Iterator 
+        ListIterator 
+        Spliterator 
+    
+    异常 
+        UnSupportedOperationException 
+        ClassCastException
+        IllegalArgumentException 
+        IllegalStateException 
+
+Collection 
+    add  addAll clear contains containsAll equals hashCode isEmpty iterator paralleStream remove removeAll remofeIf retainAll zise spliterator stream toArray toArray 
+
+List 
+    extends Collection 
+    方法
+        add addAll get indexOf lastIndexOf listIterator remove replaceAll set sort subList 
+
+    异常
+        ...
+        IndexOutOfBoundException 
+        NullPointerException 
+        IllegalArgumentException 
+Set 
+    extends Collection 
+SortedSet 
+    extends Set 
+
+    comparator 
+    first 
+    last 
+    headSet 
+    subSet 
+    tailSet 
+
+NavigableSet 
+    extends SortedSet 
+    ceiling descendingIterator  descendingSet floor headSet highter lower pollFirst pollLast subSet tailSet 
+Queue 
+    extends Collection 
+    element 
+    offer 
+    peek 
+    poll 
+    remove 
+Deque 
+    extends Queue 
+    addFirst addLast decendingIterator getFirst getLast offerFirst offerLast peekFirst peekLast pollFirst pollLast  pop push removefirst remove FisrtOccurrence removeLast removeLastOccurrence
+
+集合类
+    AsbtractCollection AbstarctList AbstraceQueue AbstraceSequentialList LinkedList ArrayList ArrayDeque Abstractset EnumSet HashSet LinkedHashSet PriorityQueue TreeSet 
+
+遗留类
+    Vector Stack hashtable 
+
+ArrayList 
+    extends AbstractList 
+
+    ensureCapacity 
+    trimToSize 
+    toArray 
+LinkedList 
+    extends AbstractSequentialList 
+    implement List Deque Queue 
+HashSet 
+    extends AbstractSet 
+    implement Set 
+
+    HashSet() HashSEt( Collection) HashSet(capacity) HashSet(capacity, fillRatio)
+
+
+LinkedHashSet 
+    extends HashSet 
+    
+TreeSet 
+    extends AbstractSet 
+    implement NavigableSet 
+
+    TreeSet() TreeSet(Collection) TreeSet(Comparator) TreeSet(SortedSet )
+
+PriorityQueue 
+    extends AbstractQueue 
+    implements Queue 
+    PriorityQueue（） PriorityQueue(capacity) PriorityQueue(Comparator) PriorityQueue(capacity,Comparator) PriorityQueue(Collection) PriorityQueue(PriorityQueue) PriorityQueue(SortedSet)
+ArrayDeque 
+    extends AbstractCollection 
+    implements Deque 
+    
+
+
+
+
+

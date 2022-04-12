@@ -1,0 +1,61 @@
+1 处理字符串
+2 游泳的字符串方法
+3 项目：口令保管箱
+4 项目： 在Wiki标记中添加无序列表
+
+连接字符串、提取字符串、添加、删除、大小写转换、检查格式等
+
+1 字符串处理
+    字面量
+        双引号
+        转义  \
+    \' \" \n \\
+
+    原始字符串
+        在字符串开始的引号之前加上r，“原始字符串"完全忽略所有的转义字符
+    用三重引号的多行字符串
+        所有引号、制表符或换行符 都表示字符串的一部分
+        '''xxxxx
+        xxxxx xxxx'''
+        """xxxxxx
+        xxxxx xxxx"""
+    注释
+        # 单行
+        ***
+        xxxx
+        xxxx     
+        ***  多行
+    下标、切片
+
+    in not in 
+2 有用的字符串方法
+    upper() lower() isupper() islower()
+
+    isalpha() 只有字母，非空
+    isalnum() 只有字母和数字，非空
+    isdecimal() 只有数字字符，非空
+    isspace() 只包含空格、制表符、换行符，非空
+    istitle() 每个单词都是大写字母开头，后面都是小写
+
+
+    startswith()
+    endswith()
+
+
+    join() split()
+    "xxx".join([])
+
+    str.split(",")
+
+
+    rjust() ljust() center
+
+    strip() rstrip() lstrip() 删除空白字符（空格、制表符、换行符）
+
+    pyperclip 模块拷贝黏贴字符串
+        copy() paste() 从剪切板发送文本或从它接收文本
+    
+        需要暗转
+
+6 项目：口令保管箱
+    

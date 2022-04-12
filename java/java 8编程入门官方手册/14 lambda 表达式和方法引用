@@ -1,0 +1,170 @@
+了解lambda表达式的基本形式
+了解函数式接口的定义
+使用lambda 表达式 
+使用块lambda 
+使用泛型函数式接口
+了解lambda表达式中的变量捕获
+从lambda表达式抛出异常
+理解方法引用
+理解构造函数引用
+了解java.util.function中的预定义函数式接口
+
+JDK8   lambda 表达式  
+
+
+lambda  
+    本质上是一个匿名方法。这个方法不是独立执行的，而是用于实现由函数式接口定义的另一个方法。因此，lambda表达式会导致产生一个匿名类。lambda表达式也常被称为闭包
+函数式接口
+    仅包含一个抽象方法的接口。函数式接口通常表示单个动作。此外，函数式接口定义了lambda表达式的目标类型。
+        lambda 表达式只能用于其目标类型已经被指定的上下文。
+        另外，函数式接口有时候被称为SAM类型，意思是单抽象方法 Single Abstract Method
+
+        函数式接口可以指定Object 定义的任何公有方法，例如equals ，而不影响其作为“函数式接口”的状态。Object 的公有方法被视为函数式接口的隐式成员，因为函数式接口的实例会默认自动实现它们。
+lambda 表达式
+    运算符 ->  lambda 表达式运算符或箭头运算符。
+        左边参数。右边lambda体
+    lambda体
+        单独表达式
+            ()-> 100
+            (n)->100*n
+            (n)->n>100
+            n->n%2
+        代码块
+            右侧由一个代码块组成，其中包含多条语句
+    显示声明类型，所有参数都要声明
+    lambda表达式与变量捕获
+        lambda表达式可以访问外层作用域中定义的变量
+        也可以显示或隐式反问this
+
+        lambda表达式使用其外层作用域定义的局部变量时，会产生变量捕获。只能使用实质上是final 的局部变量
+        lambda 表达式不能修改外层作用域内的局部变量，可以修改调用类的实例变量.
+            psvm(){
+                int num = 10;
+                MyFunc MyFunc=(n)->{
+                    int v=num+n;
+                    num++;//error
+                }
+                num++;//error
+            }
+            lambda 表达式里引用外层变量时，num 隐式final  ,lambda表达式里或lambda表达式外部都不能修改其值
+    从lambda表达式中抛出异常
+        抛出的异常必须与函数式接口方法声明中的异常兼容
+    形参为数组
+        (n)->{} n 从上下文中推断为数组
+
+    JDK8中新增的java api 库的一处最重要的增强是引入了新的流包 java.util.stream. 这个包定义了一些流类，其中最常见的是Stream 。以内与java.util.stream 相关，所以流是数据的管道。因此，流表示序列对象。另外，流支持多种类型的操作，允许创建管线pipeline 来执行一系列针对数据的动作。这些动作经常由lambda 表达式来表示。而且很多情况下，这样的动作序列可以并行执行，这样就可以大大提高效率，特别是设计大数据集时。简而言之，流api 以高效且易用的方式为数据处理提供一种强大的方式。
+    
+            
+函数式接口
+    默认方法
+        默认方法是非抽象方法。（只有未指定默认实现时，接口方法才是抽象方法）
+        函数式接口可以包含默认方法和静态方法。
+    抽象方法的类型必须和lambda表达式的类型兼容
+        指定的类型或可以隐式转换的类型
+    泛型函数式接口
+        lambda表达式不能是泛型的
+        函数接库可以是泛型的
+        目标类型上下文
+            变量初始化、赋值、实参传递、类型转换、？运算符、数组初始化器、return、lambda表达式
+    方法引用
+        静态方法引用
+            ClassName::methodName 
+        泛型方法引用
+            SomeTest<Integer> mRef = MyClass::<Integer>myGenMeth;
+        构造函数引用
+            classname：new
+            数组构造函数
+                type[]:new 
+                interface MyArrayCreator<T>{
+                    T[] func(int n);
+                }
+
+                MyArrayCreator<MyClass> mcArrayCons=MyClass[]::new ;
+                MyClass[] a = mcArrayCons:func(3);
+    预定义的函数式接口  
+        jdk8  java.util.function 
+        UnaryOperator<T>   对类型为T 的对象应用医院运算，并返回结果。结果的类型也是T，它包含的方法叫做 apply()
+        BinaryOperator<T>  对类型为T 的两个对象应用操作，并返回结果。结果的类型也是T，它包含的方法叫做 apply()
+        Consumer<T>        对类型为T 的对象应用操作，它包含的方法叫做accept()
+        Supplier<T>        返回类型为T 的对象，它包含的方法叫get();
+        Function<T,R>      对类型为T 的对象应用操作，并返回结果。结果是类型为R的对象，包含的方法叫做 apply()
+        Predicate<T>       确定类型为T 的对象是否满足某种约束。返回一个指示结果的布尔值。包含的方法叫做 test 
+
+自测题 
+    1 什么是lambda 运算符 
+        ->
+    2 什么是函数式接口
+        包含且只包含一个抽象方法的接口
+    3 函数式接口和lambda表达式是如何关联的
+        lambda 表达式提供函数式接口定义的抽象方法的实现。函数式接口定义目标类型
+    4 lambda表达式的两种常见类型是什么
+        表达式lambda 和块lambda。 表达式lambda 指定单一的表达式，其值由lambda 返回。而块lambda包含一个代码块。其值由return 语句指定。
+    5 给出一个lambda 表达式，如果某个数字在10 和 20 之间（包括10 和20），该表达式返回的结果为true 
+        (n)->{n>9&&n<21}
+    6 创建一个函数式接口，使之支持习题5中所创建的lambda 表达式。调用接口MyTest 及其抽象方法testing()
+        interface MyTest{
+            boolean testing(int n);
+        }
+
+    7 创建一个计算某个整数值的阶乘的块lambda。演示其用法。对于该函数式接口使用本章介绍的NumericFunc
+
+    8 创建一个名为MyFunc<T> 的函数式接口。调用它的抽象方法func().让func()返回一个T类型的易怒用，并让他接收T类型的形参（因此，MyFunc将是本章中所介绍的Nmericfunc的泛型版本）。重写7的答案，演示其用法，这样就可以使MyFunc<T> 而不使用NumericFunc 
+        interface MyFunc<T>{T func(T n);}
+        class FactorialLambdaDemo{
+            public static void main(String[]args){
+                MyFunc<Integer> factorial =(n)->{
+                    int result =1;
+                    for(int i=1;i<=n;i++){
+                        result= i*result;
+                    }
+                }
+            }
+        }
+    9 使用练习14-1 所表示的程序创建一个lambda 表达式，删除字符串中所有的空格并返回结果。通过将其传递给changeStr()演示该方法。
+        StringFunc remove = (str)->{
+            String result ="";
+            for(int i =0;i<str.length;i++){
+                if(str.charAt(i)!=' '){
+                    result+=str.charAt(i);
+                }
+            }
+        }
+    10 lambda 表达式可以使用局部变量？如果可以，必须满足什么约束条件？
+        可以，必须是有效的final
+    11 如果lambda 表达式抛出了经检测的异常，函数式接口中的抽象方法必须有一条包含该异常的throws 子句。这种说法正确吗？
+        正确
+    12 什么是方法引用
+        指引用某个方法但并不执行它的一种方法
+    13 当被计算时，方法引用会创建一个由其目标上下问提供的_____实例
+        函数式接口 
+    14 假定名为MyClass 的类包含静态的抽象方法myStaticMethod() 说明如何指定该抽象方法的方法引用
+        MyClass::myStaticMethod
+    15 假定名为MyClass 的类包含实例方法myInstMethod() ,并假定MyClass 的一个对象称为meObj，请说明如何创建meObj 对象的myInstaMethod() 的方法引用
+        mcObj::myInstMethod
+    16 在MethodRefDemo2程序中，将新方法hasCommonFactor()添加到MyIntNum中。如果方法hasCommonFactor() 的int 实参和存储在调用对象MuyIntNum 中的值至少有一个公有因子，该方法返回true 。例如 9 和12 就有公因子3，9和16 就没有公因子。请通过方法引用演示hasCommonFactor 的用法
+        class MyIntNum{
+            private int v;
+            MyIntNum(int x){
+                v=x;
+            }
+
+            int getNum(){return v;}
+
+            boolean isFactor(int n){
+                return (v%n)==0;
+            }
+
+            boolean hasCommonFactor(int n){
+                for(int i=2;i<v/i;i++){
+                    if(((v%i)==0)&&((n%i)==0))){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+    17 如何指定构造函数引用
+        MyClass:new 
+    18 java定义的几个预定义函数式接口都位于哪个保重
+        java.util.function
+    

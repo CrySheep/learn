@@ -1,0 +1,90 @@
+进程
+    运行的程序
+    程序是最小代码单元
+线程
+    线程是最小代码单元
+    程序可以同时执行两个或多个任务
+进程是重量级任务
+    需要自己的地址空间
+    进程间通信开销大且有有很多限制
+    从一个进程上下文切换到另一个进程上下文的开销也很大。
+线程是轻量级的任务
+    共享相同的地址空间
+    合作共享同一个重量级的进程。
+    线程间通信的开销不大
+    从一个线程上下文切换到另一个线程上下文开销更小
+Fork/join 框架
+    为创建能够自动伸缩以充分利用多核环境的多线程应用程序提供了强大的方法；是java对并行编程支持的一部分，并行编程通常指优化某些类型的算法，以便能够在多个cpu系统中并行运行的一种技术。
+线程状态
+    运行 running 
+        只要获得cpu时间就准备运行
+    挂起 suspended
+        运行的线程可以被挂起，这会临时停止线程的活动
+    恢复 resumed 
+        挂起的线程可以恢复，从而运行从停止处恢复执行
+    阻塞 blocked
+        等待资源时，线程会被阻塞 
+    终止
+        任何时候都可以终止线程，终止后不可以恢复
+优先级
+    setPriority 
+        MIN_PROIORITY 
+        MAX_PRIORITY 
+        NORM_PRIORITY
+同步
+    监视器
+        可以看作非常小的，只能包含一个线程的盒子。一旦某个线程进入监视器，其他所有线程必须等待
+    2种方法
+        synchronized 
+            public synchronized type methodName
+
+            synchronized(objRef){
+
+            }
+消息传递
+Thread 和Runnable 
+    Thread 
+        getName 
+        getPriority 
+        isAlive 
+        join 
+        run 
+        sleep 
+        start 
+主线程
+    Thread.currentThread 方法 
+        返回调用线程
+创建线程
+    扩展Thread类型
+    实现Runnable 接口
+等待线程结束
+    join 
+线程间通信
+    多线程通过将任务分隔到独立的逻辑单元来替换事件循环编程。
+    消除了轮询
+        wait notify notifyAll  线程间通信
+            wait 通知调用线程放弃监视器并进入休眠，直到notify 或notifyAll 
+            notify 
+                唤醒调用相同对象的wait 方法的线程
+            notifyAll 
+                唤醒调用相同对象的wait 方法的所有线程，其中一个线程将得到访问权限
+        假唤醒
+            没有调用notify notifyAll 时被唤醒
+            oracle 推荐在循环中调用wait 方法
+死锁
+    当两个线程循环依赖一对同步对象时，会发生这种情况。
+挂起、恢复与停止线程
+    suspend 会导致严重错误
+    resume 和suspend 一起使用
+    stoop 唤醒其他线程
+获取线程状态
+    Thread.State getState
+        BLOCKED 挂起，等待锁
+        NEW 还没开始运行
+        RUNNABLE 正在执行
+        TERMINATED 执行完毕
+        TIMED_WATING 挂起一段时间
+        WAITING  挂起
+    
+        
+

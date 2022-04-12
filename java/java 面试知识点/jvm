@@ -1,0 +1,118 @@
+分类
+    运行时数据区 Runtime Data Area
+
+        方法区
+        堆
+
+        虚拟机栈
+        本地方法栈
+        程序计数器
+    执行引擎
+        即时编译器
+        垃圾收集器
+
+
+    其他
+        类加载器子系统
+        本地方法库接口-本地方法可
+
+线程
+    java线程
+        虚拟机线程
+        周期性任务线程
+        gc线程
+        编译器线程
+        信号分发线程
+
+内存
+    线程私有
+        线程私有数据区域生命周期与线程相同，依赖用户线程的启动/结束 而 创建/销毁（在Hotspot VM 内线程都与操作系统的本地线程直接映射，因此这部分内存区域的存/否 跟随本地线程的生/死）
+
+        程序计数器 PC（Program Counter Register）    
+            -指向虚拟机字节码的位置
+           
+        虚拟机栈VM Stack 
+            栈帧   虚拟机栈和线程的生命周期相同
+                本地便量表 Local Variable
+                操作数栈 Operand Stack 
+                运行时常量池的引用 runtime Constant Pool Reference
+            异常
+                stackoverflowError
+                outofmemoryError
+        本地方法栈
+            stackOverflowError 
+            OutOfMemoryError
+
+    线程共享
+        线程共享区域随虚拟机的启动/关闭而创建/销毁
+
+        方法区 
+            运行时常量池 Runtime Constant Pool 
+        java 堆（类实例区）
+            新生代
+                eden 
+                from survivor 
+                to survivor 
+            老年代
+            异常 
+                OutOfMemoryError
+    直接内存
+        不是JVM运行时数据区的一部分。jdk1.4 NIO提供了基于Channel 与Buffer 的IO 方式，它可以使用Native 函数库直接分配堆外内存库，然后使用DirectByteBuffer 对象作为这块内存的引用进行操作，这样就避免了在Java 堆和Native 堆中来回复制数据，因此在一些场景中可以显著提高性能
+
+
+程序计数器
+    一块较小的内存空间，是当前线程所执行的字节码的行号指示器，每条线程都要有一个独立的程序计数器
+    
+    正在执行java 方法的话
+
+    唯一没有 OutofmemoryError 
+
+虚拟机栈
+    是描述java 方法执行的内存模型，每个方法在执行的同时都会创建一个栈帧StackFrame ）用于存储局部便量表、操作数栈、动态连接、方法出口等信息。
+
+    每一个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈出栈的过程
+
+    栈帧用来
+        存储数据和部分过程结果的数据结构
+        处理动态连接
+        方法返回值
+        异常分派
+
+    随方法创建而创建，销毁而销毁
+本地方法区
+    本地方法区和java statck 作用类似，区别是虚拟机栈为执行java 方法服务，而本地方法栈则为natvie 方法服务。
+堆 （Heap-线程恭喜那个）-运行时数据区
+    创建的对象和数组都保存在java 堆内存中，也是垃圾收集器进行来及收集的最重要的内存区域。分代收集算法——新生代（Eden 区、From Survivor 区）和老年代
+
+方法区/永久带（线程共享）
+    用于存储被JVM 加载的类信息、常量、静态变量、即时编译器编译后的代码。
+    HotSpot用堆的永久代来实现方法区，垃圾收集器可以管理堆的方式管理方法区（回收常量池和类型的卸载）
+
+    运行时常量池
+        方法区的一部分。（class 文件中除了类的版本、字段、方法、接口描述，常量池）。
+        用于存放常量池编译器生成的各种字面量和符号引用。
+jvm 运行时内存 
+
+    新生代（Eden 、From Survivor 和To Survivor）和老年代
+        Eden 
+            新生对象的出生地（大对象直接老年代）。内存不够出发MinorGc
+        ServivorFrom 
+            上一次Gc的幸存者
+        ServivorTo
+            保留了一次MinorGc 的幸存者
+        MinorGc 
+            复制-清空-互换（复制算法）
+            1 eden servicorFrom 复制到 ServicorTo  年龄+1
+            2 清空 eden、servicorFrom 
+            3 ServicorTo 和ServicorFrom 互换 
+    老年代
+        存放生命周期长的内存对象
+        MajorGC 之前先MinorGC ，空间不够时才出发（标记清除）
+    永久代
+        存放Class 和Meta 信息
+    
+    java8 
+        java8 移除永久代，增加 元数据区（元空间）。
+        元空间使用本地内存，存放类的元数据。堆存放字符串池和类的静态变量（MaxPermSize）
+
+垃圾回收算法

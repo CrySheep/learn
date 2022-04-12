@@ -1,0 +1,102 @@
+1 项目：利用webbrowser 模块的maplt.py
+2 利用requets模块从web下载文件
+3 将下载的文件保存到硬盘
+4 HTML
+5 用BeautifulSoup模块解析HTML 
+6 项目： "I'm Feeling Lucky" Google 查找
+7 项目：下载所有XKCD漫画
+8 用selenium模块控制浏览器
+
+
+
+webbrowser : 打开浏览器获取指定页面
+requests: 从因特网上下载文件和网页
+Beautiful Soup : 解析HTML，即网页编写的格式
+selenium : 启动并控制一个web浏览器。selenium能够填写表单，并模拟鼠标在这个浏览器中点击
+
+
+1 利用webbrowser模块的mapIt.py 
+    import webbrowser 
+    webbrowser.open('http://xxxxx')
+    浏览器打开新tab页
+
+2 用requests模块从Web下载文件
+    requests 模块
+    从web 下载文件
+
+    .1 下载网页：
+        get():requests.models.Response 
+    .2 检查错误
+        status_code 
+        requests.codes.ok 
+        raise_for_status()
+3 保存文件到硬盘
+    open wb 
+    requests iter_content
+4 HTML 
+    .1 学习HTML的资源
+    .2 快速复习
+    .3 查看网页源码
+    .4 开发者工具
+5 BeautifulSoup模块解析HTML 
+
+    从Html 提取信息
+    import bs4 
+        bs4.BeautifulSoup():
+        BeautifulSoup 
+        select() 
+6 项目：“I'm Feeling Lucky" Google 查找 
+7 下载所有XKCD 漫画
+8 用selenium模块控制浏览器
+    1 启动selenium 控制浏览器
+        from selenium import webdriver 
+    2 webdriver.Firefox():WebDriver 
+    3 browser.get()
+    4 在 WebDriver 中寻找元素
+        find_element_by_class_name()
+        find_element_by_css_selector
+        find_element_by_id 
+        find_element_by_link_text 完全
+        find_element_by_partial_link_text 包含
+        find_element_by_name 
+        find_element_by_tag_name  大小写五官
+        返回 WebElement 对象
+            tag_name 
+            get_attribute()
+            text 
+            clear()
+            is_displayted()
+            is_enabled()
+            is_selected()
+            location 
+            click()
+
+            表单 
+                send_keys()
+                submit()  提交表单
+            特殊键
+                webdriver.common.keys.
+            浏览器按钮
+                WebDriver.
+                    back
+                    forward 
+                    refresh 
+                    quit()
+                    其他：
+                        修改cookie 、截取快照等
+                http://selenium-python.readthedocs.org/
+
+
+
+            
+
+
+
+
+    
+
+
+
+    
+
+

@@ -1,0 +1,34 @@
+安装程序
+    pip 自动安装  /Library/Frameworks/Python.framework/Versions/3.x/bin/pip3.x 
+
+    C:\Python3x\Scripts\pip.exe
+
+
+    pip3.x install ModuelName
+    pip3.x install -U moduleName 
+
+        send2trash 
+        requests 
+        beautifulsoup4
+        selenium
+        openpyxl
+        PyPDF2 
+        python-docx
+        imapclient
+        pyzmail
+        twilio
+        pillow
+        pyobjc-core
+        pyobjc 
+        pyautogui
+
+可执行程序
+    第一行 #!开头 告诉计算机执行这个程序
+        windows #! python3 
+        #! /usr/bin/env python3.x
+    运行：
+        windows  bat 
+            @py.exe xxx.py %*   
+        os x 
+            chmod +x xxx.py 
+            ./xxx.py 

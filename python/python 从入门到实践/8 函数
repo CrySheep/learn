@@ -1,0 +1,40 @@
+编写函数，存储到模块
+
+函数定义
+def name(args):
+
+“”“文档字符串注释”“”
+参数
+值传递
+
+位置实参
+关键字实参
+    method(argNam2='',argNam1='')
+默认值
+    def methodName(arg1,arg2,arg3=value)
+    先列出没有默认值的形参，再列出有默认值的形参
+任意数量的实参
+    def make_pizza(*tps):
+        封装到元组中
+    最后一位
+任意数量的关键字实参
+    def build_profile(first,last,**user_info)
+    user_info 为字典
+
+    build_profile(first,last,name='name',age=age)
+
+返回值
+    return 
+    返回字典
+    
+存储到模块中
+    模块  py 文件
+    导入模块
+    import moduleName 
+    import moduleName import functionName,...
+
+    as 指定别名 函数，模块
+
+    *  导入所有函数  from xxx import *
+
+

@@ -1,0 +1,15 @@
+{key:value}
+
+增、删、改、查
+删
+    del dic[key]
+遍历：
+    for key,value in dic.items():
+遍历键
+    for key in dic.keys():
+    for key in dic :
+遍历值
+    for value in dic.values():
+
+set()
+

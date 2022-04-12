@@ -1,0 +1,21 @@
+
+2 变量
+    varname=value 
+    字母下划线和数字，不能以数字开头，非关键字
+
+3 字符串
+    ""
+    ''
+    title()
+    upper 
+    lower
+    +
+    \t \n
+    rstrip()
+    lstrip()
+    strip()
+
+4 数字
+    整数
+    浮点数
+    str()

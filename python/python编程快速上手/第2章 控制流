@@ -1,0 +1,91 @@
+1 布尔值
+2 比较操作符
+3 布尔操作符
+4 混合布尔和比较操作符
+5 控制流测元素
+6 程序执行
+7 控制流语句
+8 导入模块
+9 用 sys.exit()提前结束程序
+
+
+1 布尔值 
+ True False
+2 比较操作符
+    == != < > <= >= 
+    整型不与字符串相等
+3 布尔操作 
+    not and  or   
+    二元布尔操作
+        and  or 
+    not 操作符
+
+    顺序 not  and  or 
+
+    类真和类假的值  0 0.0 ‘’ 被认为False 其他被认为True
+    
+4 混合布尔和比较操作符
+
+5 控制流的元素
+    代码块
+        1 缩进增加时，代码块开始
+        2 代码块可以包含其他代码块
+        3 缩进减少为零，或减少时为外面包围代码块的缩进，代码块就结束了。
+
+        if name == 'Mary':
+            print('Hello Mary')
+        else: 
+            print('Hello not Mary')
+6 程序执行
+7 控制流语句
+    if 
+        if关键字
+        条件
+        : 
+        代码块
+    else 
+        if 前置
+        else 关键字
+        :
+        代码块 
+    elif 
+        if 前置
+        elif 关键字
+        条件
+        :
+        代码块
+    while 循环语句
+        while 关键字
+        条件 
+        :
+        代码块
+
+    break 
+    continue 
+    for循环和range() 函数
+        for 一个变量 in关键字 range() 冒号  代码块
+
+
+    range(12)    
+    range(12,16)
+    range(0,10,2)
+    rang(5,0,-1)
+8 导入模块
+    内建函数
+    标准库 
+
+    import 语句
+        import 关键字
+        模块名称 
+        可选的更多模块名称，之间用逗号隔开
+
+        import random 
+            random.randInt 
+        import random,sys,os,math 
+    from import 
+        from random import *
+            不再需要randmon 前缀
+9 调用sys.exit()提前结束程序
+    not and or 
+    < > == !- >= <=
+

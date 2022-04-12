@@ -1,0 +1,125 @@
+数据类型
+变量
+数组
+
+java  强类型  安全性和健壮性 
+    首先，每个变量具有一种类型，每个表达式具有一种类型，并且美中类型都严格定义
+    其次，所有赋值，不管是显示的还是在调用方法时传递参数，都要进行类型兼容性检查。
+    否则，编译错误
+基本数据类型
+    byte short int long char float double boolean 
+
+    整型 byte short int long 
+    浮点型 float double 
+    字符型 char 
+    布尔型 boolean
+
+    单个值，而不是复杂对象
+
+    整型
+        不支持无符号
+        8 16 32 64 
+
+        byte  -128～127
+        short 
+        int 表达式求值时，byte short 会被提升为int 类型 
+            a+=b 和 a= a+b  的不同
+
+        long 
+    浮点型
+        ieee 754 
+    
+        float 32 
+        double 64 
+    字符型
+        char 
+        unicode 
+    布尔型
+        true
+        flase 
+字面值
+    整型
+        2 0b 
+        8 0 
+        10 
+        16 0x
+        jdk 7 下划线
+
+    浮点
+        float f F
+        double  默认  d D
+
+        16进制浮点型  
+            0x12.2P2
+    布尔型字面值
+        true 
+        flase 
+    字符
+        ''
+        \ 转义字符
+            \ddd
+            \uxxxx 
+            \'
+            \"
+            \\
+            \r
+            \n
+            \f
+            \t 
+            \b  
+
+    字符串字面值
+        “”
+    变量
+    作用域
+    类型转换和强制类型转换
+        自动类型转换
+            两种类型兼容
+            目标类型大于源类型
+
+            发生： 扩宽转换
+        强制类型转换
+            缩小转换
+            (target-type) value
+
+            浮点转整型  截尾
+    表达式中的自动类型提升
+        byte、short 或char 操作数自动提升为int
+        规则：
+            子表达式
+                byte、short、char 提升为int 
+                含long，整个表达式提升为long 
+                含float，整个表达式提升为float
+                含double，整个表达式提升为double 
+            例子
+                byte b 
+                char c
+                short s 
+                int i 
+                float f 
+                double d 
+                (f*b)+(i/c)-(d*s)
+                b 提升为float f*b 返回float 
+                c 提升为int ，i*c 返回int 
+                s 提升为double ， d*s 返回double 
+                float +int -double  返回 double 
+    数组
+        以通用名称引用一组类型相同的变量
+        一维、多维、不规则
+        初始化
+            new，初始化为  0   flase null 
+        多维 
+            分配多个纬度
+                int[][] variable = new int [4][5];
+            只分配第一纬
+                int[][] variable = new int[4];
+                variable[0]=new int[5];
+                variable[1]=new int[5];
+                variable[2]=new int[5];
+                variable[3]=new int[5];
+     
+
+
+
+
+

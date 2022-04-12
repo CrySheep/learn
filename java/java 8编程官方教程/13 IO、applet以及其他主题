@@ -1,0 +1,101 @@
+IO
+带资源的try 
+关键字
+    transient 
+    volatile 
+    instanceof 
+    native 
+    strictfp
+    assert
+IO 
+    流
+        字节流
+
+            InputStream 
+            OutpuStream 
+
+            BufferedInputStream
+            BufferedOutputStream 
+            ByteArrayInputStream 
+            ByteArrayOutputStrean 
+            DataInputStream 
+            DataOutputSteam 
+            FileInputStream
+            fileOutputStream
+            FilterInputStream 
+            FilterOutputStream 
+            ObjectInputStream 
+            ObjectOutputStream 
+            PipedInputStream 
+            PipedOutputStream 
+            PrintStream 
+            PushbackInputStream 
+            SequenceInputStream
+        字符流
+            Reader 
+            Writer
+            BufferedReader 
+            BufferedWriter 
+            CharArrayReader
+            CharArrayWriter
+            FileReader
+            FileWriter 
+            FilterReader 
+            FilterWriter 
+            InputStreamWriter 
+            OutputStreamReader 
+            PipedWriter 
+            PipedReader
+            StringReader 
+            StringWriter
+            LineNumberReader 
+            PrintWriter 
+            PubshbackReader
+
+        预定义流
+            System.in|out|err 
+                in  InputStream 
+                out|err PrintStream
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+
+                read 
+                readLine
+            
+    关键字
+        transient 
+            当存储对象时，实例变量的值将不需要永久保存
+        volatile 
+            告诉编译器，由volatile修饰的变量可以被程序的其他部分随意修改。
+        instanceof 运算符 
+            obj  instanceof type 
+        stricfp 
+            修饰类、方法或接口
+            java 2 浮点计算模型扫尾宽松。计算不会截断中间值。使用该注解可以确保与以前版本使用相同方式执行浮点数计算（更精确）
+
+            作用于类时所有方法自动使用strictfp
+        native 
+            非java 代码
+            native 修饰方法，并且不带方法体 
+            JNI java native interface 
+            javah 生成 头文件
+            风险 
+                安全性风险。需要得到安全管理器的批准
+                可一致性丢失。DLL不可移植 
+        assert 
+            assert condition; 
+                true 断言为真 ；
+                false 抛出 AssertionError
+            assert condition: expr;
+                true 断言为真
+                false expr 为 AssertionError 内容
+            java -ea AssertDemo 
+                -ea 启用
+                -da 关闭
+    紧凑API配置文件
+        JDK8 
+        将api库子集组成所谓的紧凑配置文件。 compact1 compact2 compact3 每个包含库的子集。 compact3 包含 2 包含 1 
+        优势 
+            不用下载整个库。不支持整个api，减少下载时间
+        javac -profile profileName programName 
+        

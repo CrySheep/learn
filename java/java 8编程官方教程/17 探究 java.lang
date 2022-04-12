@@ -1,0 +1,212 @@
+Boolean
+Enum
+Byte
+Character
+Character.Subset
+Character.UnicodeBlock
+Enum 
+Short
+
+Integer 
+Long 
+Float 
+Double
+Number
+
+Math 
+
+String 
+StringBuffer 
+StringBuilder 
+Void
+
+Class 
+ClassLoader
+ClassValue 
+Compiler 
+
+InheritableThreadLocal 
+Object 
+Package 
+Process 
+ProcessBuilder 
+ProcessBuilder.Redirect
+Runtime 
+RuntimePermission 
+SecurityManager 
+StackTraceElement 
+StrictMath
+System 
+
+Thread 
+ThreadGroup 
+ThreadLocal 
+Throwable 
+
+------
+接口
+
+Appendable 
+AutoCloseable 
+CharSequence 
+Cloneable 
+Comparable 
+Iterable
+Readable 
+Runnable 
+Thread.UncaughtExceptionHandler 
+
+
+-------------------
+基本类型封装器
+
+数值类型
+Number
+
+Double  Float 
+    BYTES 宽度
+    指数
+    SIZE 位宽
+    IEEE 位模式
+    Class 
+
+Byte Short Integer Long 
+    BYTES 宽度
+    SIZE 位宽
+    Class 
+
+
+    parseXXXX
+Character 
+    宽度
+    最大/最小基数
+    最大/最小值
+
+码点
+    JDK5  支持32位unicode 字符
+    重要术语
+        代码点  0～10FFFF
+        补充字符 大于 10FFFF 
+        基本多语言平面字符（BMP） 0～FFFF 之间的字符
+
+    java 使用连个 char 表示一个附加字符
+        高代理
+        低代理
+
+    代码转换  codePointAt()
+
+Boolean
+Void 
+    只有TYPE，不能创建 
+Process 
+    用来封装进程。
+    创建 
+        Runtime.exec()
+        ProcessBuilder.start()
+Runtime
+    封装运行时环境
+    getRuntime()
+    内存管理
+    执行其他程序
+ProcessBuilder 类
+    启动和管理进程的方式
+    为进程提供了更多控制
+
+    Redirect 类方法
+System 
+    包含一系列静态方法和变量
+    currentTimeMills()
+    arraycopy
+    环境属性
+        getProperty
+Object 
+
+Cloneable  clone  
+Class 
+ClassLoader 
+Math 
+    三角函数 sin cos tan 
+    指数函数 
+    舍入函数 
+    其他： 
+StrictMath 
+    确保精确的结果
+Compiler 
+    创建java 环境，从而将java 字节码编译成可执行代码。
+Thread ThreadGroup Runnable 
+    Thread  
+        创建新的执行线程  实现 runnable 
+        xx_PRIORITY 3 
+    ThreadGroup 
+        线程组，管理一组线程提供便利
+    ThreadLocal 
+        创建局部线程变量，每个线程具有线程局部变量的一个副本
+    InheritableThreadLocal 
+        创建可被继承的线程局部变量
+Package 类  
+    封装了与包有关的版本数据
+RuntimePermission 
+    与java 的安全机制有关
+Throwable 
+    异常处理系统，所有异常的父类
+SecurityManager 类  
+    Java 的安全系统。
+    System.getSecurityManager 
+StackTraceElement 类 
+    描述单个的堆栈帧
+    堆栈帧，发生异常时堆栈踪迹的单个元素，代表一个执行点
+        类名、方法名、文件、源代码行号等
+        Throwable.getStatckTrace
+Enum 类 
+    枚举
+ClassValue 
+    为类型关联一个值
+    不用于常规变成
+CharSequence 
+    定义只读方式访问字符序列
+    String、StringBuilder、StringBuffer 
+Comparable 
+    实现了接口的类可以以某种方式进行排序
+Appendable 
+    实现的接口可以追加字符或字符序列
+Iterable 接口
+    for-each 必须实现
+    Iterrator<T> interator()
+    JDK8 
+    forEach 
+    Spliterator<T> spliterator() 
+Readable 
+    指示对对象可以用作字符的源。
+    int read(CharBuffer buf)
+AutoCloseable 
+    try-witho-resource 
+Thread.UncaughtExceptionHandler 
+    未捕获异常处理
+java.lang 子包
+    java.lang.annotation 注解
+    java.lang.instrument 定义了能够被用于为程序执行的各个方面添加工具的特性
+        / Instumentation 
+        / ClassFileTransformer 
+        ClassDefinition 
+
+    java.lang.invoke 
+        支持动态语言
+            CallSite 
+            MethodHandle 
+            MethodType 
+    java.lang.management 
+        为JVM 和执行环境提供了管理支持，可以观察和管理程序执行
+    java.lang.ref
+        为垃圾回收提供了更灵活的控制 
+    java.lang.reflect 
+        反射 
+        Method Field Constructor 
+        AnnotatedElement Member Type 
+        Array 动态创建和访问数组
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+分类
+    选择
+    迭代
+    跳转
+
+    选择
+        if  else 
+        if else if 
+        switch 
+            jdk7 之前 支持  byte short int char  枚举
+            jdk 7 支持  string 
+                通过hashcode + string.equals 执行
+                hashcode 相同   FB Ea 2236
+
+            特征：
+                只进行想等性测试。是否与某个case 相等
+                两个case值不能相同，嵌套除外
+                swtich 效率比if 高
+    迭代
+        while 
+        do while
+        for 
+            逗号 多个条件
+        foreach 
+            jdk5 
+    跳转
+        break 
+            switch 
+            循环 
+            goto 
+                break  lable
+                不执行lable 下一个迭代
+        continue 
+            goto  
+                continue lable 
+                继续执行lable 下一个迭代
+        return 
+
+
+            
+    

@@ -1,0 +1,51 @@
+1 def 语句和参数
+2 返回值和return语句
+3 None 值
+4 关键字参数和print()
+5 局部变量和全局作用于
+6 global 语句
+7 异常处理
+8 一个小程序：猜数字
+
+
+1 def语句和参数
+    def 函数名(参数名):
+
+        def hello(name):
+
+2 返回值和return
+    return 关键字
+    函数应该返回的值或表达式
+
+    def getAnswer(answerNumber):
+        return 1;
+3 None 值
+    NoneType 数据类型的唯一值
+    没有return 或 不带任何值的return 返回 None
+4 关键字参数和print()
+    参数大多有位置来识别，关键字参数由加在前面的关键字来识别
+
+    print(‘Hello',end='')
+    替换换行符
+5 局部和全局作用于
+    在被调用函数内赋值的变元和变量，处于 该函数的“局部作用于”，在所有函数之外赋值的变量，属于”全局作用域“。
+
+    只有一个全局作用于
+
+    局部变量可以和全局变量相同
+
+6 global语句
+    如果需要在一个函数内修改全局变量，就使用global语句
+    global eggs
+    eggs = 'spam'
+
+    规则：
+        全局作用于使用，全局变量
+        函数中使用global，全局变量
+        函数中使用赋值语句（非global），局部变量
+        每使用赋值语句，全局变量
+7 异常处理
+    try:
+    except xxError:
+8 猜数字游戏
+

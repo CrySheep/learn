@@ -1,0 +1,114 @@
+1 文件与文件路径
+2 文件读写过程
+3 用shelve模块保存变量
+4 用pprint.pformat()函数保存变量
+5 项目：生成随机的测验试卷文件
+6 项目：多重剪切版
+
+
+1 文件与文件路径
+    windows  盘 
+    osx linux  根文件夹 /
+
+    windows osx 不区分大小写  linux 区分大小写
+
+    windows  \ 反斜杆
+
+    import os 
+        os.path.join() 返回文件路径
+
+        os.getcwd() 获取当前路径 
+
+        os.getdir() 改变当前路径
+
+        绝对路径与相对路径
+            绝对路径：从根文件夹开始
+            相对路径：相对于程序的当前工作目录
+
+            . 当前目录缩写
+            .. 父文件夹缩写
+        创建文件夹
+            os.makedirs() 创建整个目录
+        os.path模块
+            os.path 模块包含了许多与文件名和路径相关的有用函数
+
+            os.path   http://docs.python.org/3/library/os.path.html
+
+        处理相对路径和绝对路径
+            os.path.abspath(path) 返回参数的绝对路径
+            os.path.isabs(path) 是否是绝对路径
+
+            os.path.relpath(path,start) 返回 从start 到 path 的相对路径，默认当前工作目录
+
+            os.path.dirname(path) 最后一个斜杆之前的内容
+
+            os.path.basename() 最后一个斜杆之后的内容
+            os.path.split() 获得上面的元组
+
+
+            str.split(os.path.sep)
+
+
+            os.path.getsize() 查看字节数
+
+            os.listdir(path) 返回文件名字符串的列表
+
+            os.path.exists()
+            os.path.isfile()
+            os.path.isdir()
+2 文件读写过程
+
+    3 个步骤
+        1 open() 返回File对象
+        2 File.read()/write()
+        3 File.close
+    
+
+        open  
+            默认读模式
+                open('','r')
+            
+                
+        读取文件内容
+            read()
+            readlines
+        
+        写文件
+            覆盖 open('','w')
+            添加 open('','a')
+            write()
+3 使用shelve 模块保存变量
+    利用shelve模块，你可以将python 程序中的变量保存到二进制的shelf文件中
+
+    import shelve 
+    shelfFile = shelve.open('mydata')
+    cats=['Zophie','Pooka','Simon']
+    shelfFile['cats'] = cats
+    shelfFile.close()
+
+
+    windows  
+        mydata.bak  mydata.dat mydata.dir
+    osx  
+        mydata.db 
+    
+
+    shelfFile = shelve.open('mydata')
+    type(shelfFile)
+    shelFile['cats']
+    shelfFile.close()
+
+    keys() values()
+
+4 pprint.pformat() 函数保存变量
+    
+        
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+包和接口
+包 package 
+    多个类的容器
+接口
+    方法完全抽象
+    多“继承”（实现）
+包 
+    关键字  package 
+    默认包
+    class  文件必须存储在包对应的目录中
+
+    包查找和Classpath 
+访问控制
+    类是最小的抽象单元
+    访问修饰符
+        private 子类
+        public 所有
+        protected 包，子类
+导入包
+    import package.class 
+    import package.*
+    java.lang.* 编译器默认导入
+接口
+    interface 
+    接口默认 包访问
+    jdk8 默认实现
+
+    接口实现
+        实现类中方法必须声明为public 
+    嵌套接口
+        可以将接口声明为某个类或另外一个接口的成员。可以声明为public private protected
+
+        class A{ public interface NestedIF{}}
+        class B implements A.NestedIF{
+
+        }
+    变量
+        public static final 
+    扩展接口
+        extends
+    默认方法
+        default
+        优点
+            优雅地随时间演化接口
+            提供可选功能，但是类不必在不需要该功能时提供占位符实现
+        冲突
+            类中方法优先
+            接口中同相同默认接口，如果类中没有实现，报错误
+            接口有继承关系，继承接口优先级高
+    静态方法

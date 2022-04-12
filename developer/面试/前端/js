@@ -21,7 +21,7 @@
 
 1.基本数据类型（自身不可拆分的）：Undefined、Null、Boolean、Number、String
 2.引用数据类型（对象）：Object （Array，Date，RegExp，Function）
-ES6基本数据类型多了个symbol 据说这道题刷了百分之二十的人 感谢Abbyshen提出
+ES6基本数据类型多了个 symbol 据说这道题刷了百分之二十的人 感谢Abbyshen提出
 
 function gettype(nm){
     return Object.prototype.toString.call(nm);
@@ -43,13 +43,84 @@ Object.apply(this,arguments)
 后者不会自动类型转换，直接去比较
 
 
-21. Javascript的事件流模型都有什么?
+21. Javascript3 种事件模型吗
 
-“事件冒泡”：事件开始由最具体的元素接受，然后逐级向上传播
+    DOM0级模型
+    又称为原始事件模型，在该模型中，事件不会传播，即没有事件流的概念。事件绑定监听函数比较简单, 有两种方式:
 
-“事件捕捉”：事件由最不具体的节点先接收，然后逐级向下，一直到最具体的
+    HTML代码中直接绑定:
 
-“DOM事件流”：三个阶段：事件捕捉，目标阶段，事件冒泡
+    1
+    <input type="button" onclick="fun()">
+    通过JS代码指定属性值:
+
+    1
+    2
+    var btn = document.getElementById('.btn');
+    btn.onclick = fun;
+    移除监听函数：
+
+    1
+    btn.onclick = null;
+    这种方式所有浏览器都兼容，但是逻辑与显示并没有分离。
+
+    IE事件模型
+    IE事件模型共有两个过程:
+
+    事件处理阶段(target phase)。事件到达目标元素, 触发目标元素的监听函数。
+    事件冒泡阶段(bubbling phase)。事件从目标元素冒泡到document, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。
+    事件绑定监听函数的方式如下:
+
+    1
+    attachEvent(eventType, handler)
+    
+
+    事件移除监听函数的方式如下:
+
+    1
+    detachEvent(eventType, handler)
+    
+
+    参数说明:
+
+    eventType指定事件类型(注意加on)
+    handler是事件处理函数
+    Example:
+
+    1
+    2
+    3
+    var btn = document.getElementById('.btn');
+    btn.attachEvent(‘onclick’, showMessage);
+    btn.detachEvent(‘onclick’, showMessage);
+    
+
+    DOM2级模型
+    属于W3C标准模型，现代浏览器(除IE6-8之外的浏览器)都支持该模型。在该事件模型中，一次事件共有三个过程:
+
+    事件捕获阶段(capturing phase)。事件从document一直向下传播到目标元素, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。
+    事件处理阶段(target phase)。事件到达目标元素, 触发目标元素的监听函数。
+    事件冒泡阶段(bubbling phase)。事件从目标元素冒泡到document, 依次检查经过的节点是否绑定了事件监听函数，如果有则执行。
+    事件绑定监听函数的方式如下:
+
+    1
+    addEventListener(eventType, handler, useCapture)
+    
+
+    事件移除监听函数的方式如下:
+
+    1
+    removeEventListener(eventType, handler, useCapture)
+    
+
+    Example:
+
+    1
+    2
+    3
+    var btn = document.getElementById('.btn');
+    btn.addEventListener(‘click’, showMessage, false);
+    btn.removeEventListener(‘click’, showMessage, false);
 
 
 26. null和undefined的区别？
@@ -186,6 +257,8 @@ es6 新增了哪些特新
         链接：https://www.jianshu.com/p/ac1787f6c50f
 
 10 
+
+
 
 
 

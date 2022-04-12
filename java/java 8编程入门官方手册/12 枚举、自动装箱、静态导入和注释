@@ -1,0 +1,142 @@
+枚举的基础知识
+枚举基于类的特性
+枚举 values()和valueof 方法
+具有构造函数、实例变量和方法的枚举
+使用从Enum 继承的ordinal 和 compareTo 方法
+
+类型封装器
+自动装箱和自动拆箱
+使用带有方法的自动装箱
+表达式中自动装箱
+
+静态导入
+
+了解注解
+
+
+JDK5 
+
+枚举
+    关键字
+        enum 
+    比较
+        ==
+    switch 
+    values 和 valueOf
+        values 
+            枚举常量数组
+        valueOf 
+            枚举常量
+    构造函数、方法、实例变量和枚举
+    
+    enum 
+        所有枚举继承java.lang.Enum
+    oridinal 和compareTo 
+        oridinal 
+            从0 开始
+        compareTo 
+自动装箱
+    JDK5
+        自动装箱、自动拆箱
+            装箱；
+                把值封装在对象中的过程称为装箱
+            拆箱
+                从封装类型中提取值的过程
+        类型封装器
+            基本类型
+                不属于对象
+            Double Float Long Integer Short Byte Character Boolean 
+静态导入
+    import static 导入类/接口的静态成员
+    import static pkg.type-name.static-member-name;
+    import static pkg.type-name.*;
+    可以导入静态成员
+注解（元数据）
+    java提供了一项可以在源文件中潜入附加信息的功能，称为注解annotation 
+    @interface MyAnno{
+        String str();
+        int val();
+    }
+    所有注解类都扩展Annotation 接口
+    原来只用来标注声明（类、方法、域、形参和enum常量）
+    JDK 8  可以对类型用法（type use）进行注解，如强制转换类型或方法返回类型
+
+    内助通用注解
+        java.lang.annotation 
+            @Retention 
+                指定与注解相关联的保持策略。保持策略确定注解在编译和部署过程中保持多久
+                RetentionPolicy.
+                    SOURCE
+                    CLASS
+                    RUNTIME
+            @Documented
+                标记注解，告诉工具注解被文档化，它只作用注解声明的注解
+            @Target 
+                指定应用注解的声明类型，它是只用作另一个注解的注解
+                ElementType
+                    TYPE
+                    FIELD
+                    METHOD
+                    PARAMETER
+                    CONSTRUCTOR
+                    LOCAL_VARIABLE
+                    ANNOTATION_TYPE
+                    PACKAGE
+                    ----- jdk8
+                    TYPE_PARAMETER
+                    TYPE_USE
+            @Inherited 
+                标记注解，让超类的注解由子类继承
+            --------------JDK8 
+            @Repeatable
+                支持重复的注解，可以将这些注解多次应用到某一个声明。 
+            @Native
+                用于注解可执行代码（即本机代码）锁访问的常量域。
+        java.lang 
+            @Override 
+                标记注解。使用@Override 标记的方法必须重写来自超类的方法，否则导致编译错误。这样做可以确保超类方法被重写，而不是重载
+            @Deprecated 
+                标记注解，指示一个声明已经过时，已被新形式取代
+            @SafeVarargs
+                标记注解，表示没有与方法或构造函数的可变长度形参有关的不安全动作发生。只能用于static 或final 方法或构造函数
+            @FunctionalInterface 
+                标记注解，用来注解接口声明。指示被注解的接口是一个函数式接口，该接口包含且仅包含一个抽象方法。可以通过lambda表达式来使用函数式接口。
+                @FunctionalInterface 是纯信息式的，任何包含且仅包含一个抽象方法的接口都是函数式接口
+            @SuppressWarnings 
+                指定由编译器发出的一条或多条警告将禁止。要禁止的警告通过字符串形式的名称指定
+自测题
+    1 枚举常量被称为自我类型化的，如何理解
+        术语自类型化（self-typed) 中，self 指定义常量的枚举类型，因此，枚举常量是其所属枚举的对象。
+    2 所有的枚举自动继承什么类
+        Enum 
+    3 对于下面的枚举，编写一个程序来使用values()显示常量及其顺序值的列表
+        enum Tools{SCREWDRIVER,WRENCH,HAMMER,PLIERS}
+        for(Tools t : Tools.values()){
+            soout(d+"has ordinal value of" + d.ordinal());
+        }
+    4 练习12-1中开发的交通指示灯模拟程序可以通过一点小小的修改得到改进，方法是利用枚举的类特性。在前面的版本中，每一种指示灯的显示时间都有TrafficLightSimulator类控制，通过硬编码把这些值传递给run方法。修改这一点，让每一种指示灯的显示时间保存在TrfficLightColor枚举中将。
+    5 给出装箱和拆箱的定义。自动装箱/自动拆箱如何影响这两种行为
+        装箱是在类型封装对象中保存基本类型值的过程。拆箱是从类型封装器对象中提取基本类型值的过程。
+        自动装箱可以自动地装箱基本类型值而不必显示地构造对象。自动拆箱可以自动地从类型封装底箱中提取基本类型值而不必显示地调用诸如intValue 等 方法
+    6 修改下面的代码段，以便使用自动装箱：
+        Short val = new Short(123);
+        Short val =123；
+    7 说明静态导入的作用
+        静态导入把类或结构的静态成员引入全局名称空间。这意味着可以使用静态成员而不必通过其类型名或接口名限定。
+    8 下面语句的作用是什么 
+        import static java.lang.Integer.parseInt;
+        该语句把类型Integer 的parseInt 方法引入全局名称空间
+    9 静态导入是用于特定的情况，还是能够用于所有类的静态成员？
+        静态导入主要用于特殊情况。过度使用静态成员将产生名称空间冲突，并且破坏程序代码的结构
+
+    10 注解的语法基于——————————
+        接口
+    11 什么是标记注解
+        标记注解是不接受实参的注解
+    12 注解只能应用于方法，对吗
+        错误。任何类型的声明都可以有注解。jdk 8 开始对类型也可以添加注解
+
+
+
+
+

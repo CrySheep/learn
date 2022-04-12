@@ -1,0 +1,137 @@
+多线程基础知识
+Thread 和Runnable 接口
+创建一个线程
+创建多个线程
+确定线程何时结束
+适用线程优先级
+理解线程同步
+使用同步方法
+使用同步代码块
+线程间的通信
+线程的挂起、继续执行和停止
+
+
+进程和线程
+    进程：
+        程序是最小单位
+
+    线程：
+        线程是最小单位
+        
+    线程多种状态 
+        就绪状态    ready to run 
+        运行状态    running
+        挂起 suspended
+        继续执行  resumed 
+        终止 terminated
+    cpu 时间  
+    同步  synchronization 
+
+Thread 和 Runnable 接口
+    java.lang 
+    创建线程
+        继承Thread 或实现Runnable 接口
+
+        Thread 
+            getName 
+            getPriority 
+            isAlive 
+            join 等待线程终止
+            run 线程进入点
+            sleep 挂起，毫秒
+            start 启动线程，调用run 
+
+            Thread(Runnable)
+            Thread(Runnable, String name)
+
+            setName 
+            setPriority
+                MIN_PRIORITY
+                MAX_PRIORITY
+            
+        Runnable 
+            run 
+影响线程调度
+    优先级
+    操作系统
+同步
+    共享资源
+    等待另一个线程
+
+    关键：
+        控制对象访问的监视器
+            监视器通过实现”锁“来工作。当一个对象被一个线程锁住以后，其他线程就不能访问该对象。当该线程退出时，要为对象解锁，使其他线程可以访问它
+        所有对象都拥有一个监视器。
+        同步关键字 synchronized 
+    两种方式
+        都使用synchronized
+
+        同步方法
+            通过在声明前加上synchronized 来创建同步方法
+            对任何给定对象，一旦同步方法被调用，就会锁住对象，其他线程的执行就不会使用同一对象上的同步方法
+            其他线程试图使用正在使用的对象时将进入等待状态，直到对象解锁为止
+            当线程离开同步方法时，兑现被解锁
+        同步语句
+            synchronized(object){}
+并发工具
+    java.util.concurrent
+    同步器、线程池、执行管理和锁、Fork/join 
+    fork/join 
+        易于使用，简化了可以自动伸缩以利用系统中的处理器数量的多线程带啊的开发。
+notify、wait、notifyAll 线程通信
+    Ojbect 
+        wait
+        wait(long)
+        wait(long,int nanos)
+        notify
+        notifyAll 
+
+        wait调用建议出现在一个循环中 
+
+    notify 和 wait 只用于同步方法
+死锁
+    一个线程等待另一个线程来做某事，而后者却在等待前者。
+    
+竞争条件
+    两个线程尝试同时访问共享资源，但有没有进行何时的同步时，就会发生竞争条件。
+
+线程的挂起、继续执行和停止  
+    jdk2 以前
+        suspend() resume  stop  
+
+    jdk2 以后
+        摒弃 suspend resume stop 
+        原因：
+            suspend 有时会导致与死锁有关的严重的系统错误。
+            resume 因为必须使用suspend 
+            stop 有时会导致严重的系统错误
+
+
+自测题
+    1 为什么java 的多线程功能可以让你编写出效率更高的程序
+        多线程功能允许利用几乎所有的程序中都存在的空闲时间。多线程是指一个线程终止时，另一个线程继续执行。在多核系统中，两个或更多个线程可以同时执行。
+    2 __________类和 __________接口支持多线程
+        Thread 类和runnable 接口
+    3 创建可运行对象时，为什么可能会想扩展Thread类而不是实现Runnable接口
+        当希望重写Thread 的多个方法而不是run 时，将会扩展Thread 
+    4 写出如何使用join（）来等待一个名为MyThrd 的线程对象结束
+        MyThrd.join()
+    5 写出如何设置名为 MyThrd 的线程，使其优先级高于普通优先级3个级别
+        MyThrd.setPriority(Thread.NORM_PRIORITY+3);
+    6 向一个方法添加关键字synchronized 的影响是什么
+        每次只有一个线程使用棋类的给定对象的方法
+    7 wait和notify 方法用于执行__________
+        线程间通信
+    8 修改TickTock 类以使其真正保存时间。即让每个tick占用半秒，每个tock 占用半秒。这样，每个tick-tock 就会占用一秒
+        Thread.sleep(500)
+    9 新的程序中为何不使用suspend、resume和stop 
+        可能会导致严重的运行时错误
+    10 Thread 定义的什么方法用于获取线程名
+        getName 
+    11 isAlive()的返回值是什么
+        线程继续运行 返回true ；如果线程终止，返回false
+    12 自己尝试一下在前几章开发的Queue类中添加同步功能，以使其正常使用多线程
+
+
+
+        

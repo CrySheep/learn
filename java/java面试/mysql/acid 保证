@@ -1,0 +1,7 @@
+原子性  undo log
+一致性 由其他三个特性保证
+隔离性 mvvc 保证 
+持久性 内存+redo log 
+
+innodb  redolog 写盘,  事务进入 prepare状态
+如果 prepare成功，binlog 写盘 ，在继续将事物持久化到binlog，如果持久化成功，innodb 事务状态进入commit状态（在redolog里写一个commit记录）。redolog的刷盘在空闲时

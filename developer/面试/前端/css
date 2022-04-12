@@ -67,6 +67,7 @@ inherit
     px
     px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。
 
+
     一般电脑的分辨率有{1920*1024}等不同的分辨率
 
 
@@ -123,8 +124,7 @@ inherit
                 flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
             align-self
                 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性
-        
-        
+          
     网格布局
         网格布局（Grid）是最强大的 CSS 布局方案
 
@@ -169,14 +169,18 @@ inherit
             align-self 属性，
             place-self 属性
 
-    
+
 
 less   sass 
 
+
+
+
 Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 
+
 有哪些特性 
-    变量
+    变量 
     混入
     嵌套规则
     冒泡
@@ -187,6 +191,8 @@ Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量�
     作用域
     注解
     导入
+
+
 
 
 

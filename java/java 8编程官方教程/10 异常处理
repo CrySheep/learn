@@ -1,0 +1,38 @@
+关键字
+    try catch throw throws finally 
+    jdk 7  try-with-resource 
+所有异常都实现 Throwable 类
+    直接子类  
+        Exception 
+            RuntimeException
+            其他
+        Error
+            不希望程序捕获的异常
+throw  
+    throwable 
+java 中定义的异常
+    未经检查异常/不受检查异常 不需要catch 
+        ArithmeticException 算术错误
+        ArrayIndexOutOfBoundsException 
+        。。。
+    经检查异常/受检查异常  需要catch
+
+Throwable 
+    addSuppressed 
+    fillInStackTrace
+    getCause()
+    getLocalizedMessage()
+    getMessage
+    getStackTrace 
+    getSuppressed 
+    initCause 
+    printStackTrace 
+    setStackTrace 
+    toString 
+链式异常
+新特性
+    try-with-resource 
+    多捕获
+    最后重新抛出/更精确地重新抛出
+        只能重新抛出满足以下条件的经检查异常：
+            关联的try代码块抛出，没有被前面的catch 子句处理过，并且是参数的子类行或超类型

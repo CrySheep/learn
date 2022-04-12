@@ -23,4 +23,32 @@ sudo chgrp -R admin /usr/local/Homebrew
 sudo chmod -R g+w /usr/local/Homebrew
 
 
+=========================
+update 报错
+
+survivors@sdeMacBook-Pro ~ % git clone git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
+ 
+Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core'...
+remote: Counting objects: 5105, done.
+remote: Compressing objects: 100% (4904/4904), done.
+remote: Total 5105 (delta 44), reused 886 (delta 5)
+Receiving objects: 100% (5105/5105), 4.14 MiB | 1.17 MiB/s, done.
+Resolving deltas: 100% (44/44), done.
+survivors@sdeMacBook-Pro ~ % cd "$(brew --repo)" 
+survivors@sdeMacBook-Pro Homebrew % git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+survivors@sdeMacBook-Pro Homebrew % cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+survivors@sdeMacBook-Pro homebrew-core % git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+ 
+survivors@sdeMacBook-Pro homebrew-core % brew update
+Already up-to-date.
+
+cd "$(brew --repo)" 
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" 
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+————————————————
+版权声明：本文为CSDN博主「survivorsfyh」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/survivorsfyh/article/details/103960551
+
+
 

@@ -1,0 +1,95 @@
+面向对象编程
+    代码
+    数据
+
+    面向过程
+        程序描述为一系列线性步骤。代码作用于数据
+    面向对象
+        围绕数据以及一套为数据惊醒定义的接口组织程序。
+        数据决定代码的访问
+    
+        本质
+            抽象
+    三原则
+        封装
+            代码及其数据绑定到一起的机制，并且保证代码和数据不受外部干扰，也不会被误用。
+            基础
+                类
+                    定义一组对象共享的结构和行为
+                    类，逻辑结构；对象，物理实体
+
+                    成员
+                        代码
+                            方法
+                        数据
+                            成员变量/实例变量
+        继承
+            一个对象获得另一个对象的属性的过程。
+            子类
+            超类
+        多态
+            一个接口用于一类通用动作的特性——一个接口，多种方法
+javac 
+java 
+注释 
+    // 
+    /**
+    *
+    **/
+访问修饰符
+    public 
+    protected 
+    package-private 
+    private 
+控制语句
+    if 
+    for
+
+空白符
+    空格、制表符、换行符
+标识符
+    命名事物（类、变量、方法）
+    大小写字母，数字，下划线、美元，不能以数字开头
+字面值
+    常量的值是通过实用表示字面值创建的
+注释
+运算符
+分隔符
+    () {} [] ; ,  . : 
+关键字
+    50个关键字
+    const goto 保留关键字
+    package 
+    import 
+
+    public abstract interface/enum/class xxx extends implement{
+        boolean/byte/short/char/int /long /float /double 
+        public protected private static final ;
+        transient
+        strictfip 
+        volatile 
+        native 
+        (){
+            super
+            this
+        }
+         asynchronized void () throws {
+             try{
+                if  else for continue break  do while  swtich case default
+                new instanceof 
+                assert
+                return 
+
+             }catch(){
+                 throw 
+             }
+             finally{
+
+             }
+         } 
+    }
+    true flase null
+类库
+
+
+

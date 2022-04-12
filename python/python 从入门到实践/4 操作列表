@@ -1,0 +1,17 @@
+1 遍历
+    for magician in magicians :
+
+    循环结束后执行
+数值列表
+    range(1,10):range 对象
+
+    list(range对象)
+    min()\max\sum 
+列表解析
+    squares=[values**2 for value in range(1,11)]
+列表的一部分
+    a[1:3] 从1开始到3前一个 
+    a[:3]
+4 元组
+    不可变的列表
+

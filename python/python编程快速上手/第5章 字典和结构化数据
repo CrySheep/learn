@@ -1,0 +1,30 @@
+1 字典数据类型
+2 漂亮打印
+3 使用数据结构对真实世界建模
+
+1 字典数据类型
+
+    键-值 对
+    {key1:value1,key2:value2...}
+    不能切片
+
+    in    key 
+
+    keys() values() items()
+    返回数据类型(dict_keys,dict_values,dict_itmes) 不能修改，可以遍历
+
+    in  not in 
+    相当于  xxx in xxxxxx.keys()
+
+    get() 方法 取得值或返回默认值
+
+    setdefault()方法
+      if xxx not in dic 
+        dic['xxx']= value 
+
+2 漂亮打印
+    pprint 模块，  pprint pformat 函数
+
+
+3 使用数据结构对真实世界建模
+    

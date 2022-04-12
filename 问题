@@ -1,0 +1,16 @@
+问题：DeprecationWarning: Using or importing the ABCs from 'collections' instread of from 'collections.abc' is deprecated since python3.3 ,and in 3.9 it will stop working 
+    from collections import namedtuple,Mapping 
+    from collections.abc import Iterable 
+
+解决：import collections.abc import namedtuple,Mapping
+
+问题：java 实体-实体映射
+运行期 beanutil, Javassist. 类库： Dozer,ModelMapper
+编译期 动态生成set/get 代码的class文件。类库： MapStruct,Selma,Orika
+
+
+问题：
+Python 中 ‘unicodeescape’ codec can’t decode bytes in position XXX: trun错误解决方案
+解决： 
+    1 \\替代\
+    2 r'd:\\a'

@@ -1,0 +1,62 @@
+lambda 表达式
+函数式接口
+
+
+lambda 表达式
+    匿名方法
+    也称为 闭包
+
+    ->
+    两种lambda 体
+        单个表达式
+        代码块
+    作为参数传递：函数式接口可以接收lambda表达式
+
+    抛出异常
+        抛出经检查异常必须和函数式接口一致
+    变量捕获
+        使用外层定义的局部变量，变量必须是实质上final （第一次赋值以后值不再变化）
+    方法引用：
+        引用而不执行方法的方式
+            需要由兼容的函数式接口构成的目标类型上下文。
+            计算时，方法引用也会创建函数式接口的一个实例
+
+        类型：
+            静态方法引用
+                ClassName::methodName 
+            实例方法的引用
+                objRef::methodName 
+                ClassName::instanceMethodName 
+                    使用这种形式时，函数式接口
+                        第一个参数匹配调用对象
+                        第二个参数匹配方法指定的参数
+                    否则报Non-static method 
+            构造函数引用
+                ClassName::new 
+                数组
+                    type[]::new 
+                    interface MyArrayCreator<T>{
+                        T func(int n);
+                    }
+                    MyArrayCreator<MyClass> mcArrayCons= MyClass[]::new ;
+                    MyClass[] a = mcArrayCons.func(2);
+                    a[0] = new MyClass(1);
+                    a[1] = new MyClass(2);
+        super 引用超类方法
+
+        Comparator<T> 可以用 方法引用替代
+
+        预定义函数式接口
+            java.util.function 
+                UnaryOperator<T>.T apply(T)
+                BinaryOperator<T>.T apply(T ,T) 
+                Consumer<T>.accept(T)
+                Supllier<T> .T get()
+                Function<T,R> .R apply(T)
+                Predicate<T>.boolean Test(T)
+        
+            
+
+函数式接口
+    仅指定一个抽象方法的接口
+    泛型函数式接口

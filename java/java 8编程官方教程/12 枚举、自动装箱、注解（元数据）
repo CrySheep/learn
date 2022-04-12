@@ -1,0 +1,193 @@
+枚举
+    JDK5 
+    基础知识：
+
+        关键字 
+            enum 
+        枚举常量
+            隐式声明为公有、静态、final
+            类型为声明的类型
+            
+        ==
+        values 和valueOf 
+        类类型
+            可以提供构造函数、变量、方法，实现接口
+        限制
+            枚举不能继承其他类
+            枚举不能是超类。
+    Enum 类
+        枚举类型自动继承java.lang.Enum 
+            ordinal  从0 开始
+            compareTo 
+            equals
+
+            valueOf 
+    枚举实现：
+        public enum t {
+            SPRING,SUMMER;
+        }
+        public final class T extends Enum
+        {
+            private T(String s, int i)
+            {
+                super(s, i);
+            }
+            public static T[] values()
+            {
+                T at[];
+                int i;
+                T at1[];
+                System.arraycopy(at = ENUM$VALUES, 0, at1 = new T[i = at.length], 0, i);
+                return at1;
+            }
+
+            public static T valueOf(String s)
+            {
+                return (T)Enum.valueOf(demo/T, s);
+            }
+
+            public static final T SPRING;
+            public static final T SUMMER;
+            private static final T ENUM$VALUES[];
+            static
+            {
+                SPRING = new T("SPRING", 0);
+                SUMMER = new T("SUMMER", 1);
+                ENUM$VALUES = (new T[] {
+                    SPRING, SUMMER
+                });
+            }
+        }
+    枚举与switch 
+        switch(s.ordinal()) { 
+            case Status.START.ordinal() 
+        }
+类型封装器
+    原因：
+        不能通过引用为方法传递基本类型。
+        许多标准数据结构是针对对象进行操作的。
+    种类
+        Double 
+        Float 
+        Long 
+        Integer 
+        Short 
+        Byte 
+        Character 
+        Boolean 
+    自动装箱
+        无论何时，只需要基本类型的对象，就自动将基本类型自动封装到与之等价的类型封装器中，而不是显示地构造对象
+    自动拆箱
+        当需要时自动抽取已装箱对象的数值的过程。不需要调用intValue 或doubleValue 等方法
+注解——元数据
+    JDK5 
+    支持在源文件中潜入信息
+    基础知识
+        @interface 
+        不能含有extends 关键字  
+        自动扩展Annotation 
+            annotationType
+        保留策略
+            java.lang.annotation.RetentionPolicy.SOURCE/CLASS/RUNTIME
+            @Retention
+        运行时反射获取注解
+            获取单个
+                Class/Method/Field/Constructor.getAnnotation
+            获取所有
+                Class/Method/Field/Constructor.getAnnotation
+    AnnotatedElement 接口
+        Method/Field/Constructor/Class/Package 都实现该接口
+        getAnnotation 
+        getDeclaredAnnotations() // 非继承注解
+        isAnnotationPresent
+
+        -----jdk 8 
+        getDeclaredAnnotation 
+        getDeclaredAnnotations
+        getDeclaredAnnotationsByType
+    默认值
+        type member() default value; 
+    标记注解
+        不包含成员
+        作用：标记声明  // isAnnotationPresent 
+    单成员元注解 
+        成员名使用 value 使用时@annotation(value)
+    内置注解
+        大部分专用
+        9个一般目的
+            java.lang.annotation  
+                @Retention //保留策略
+                @Documented  //标记注解，注解会被文档化
+                @Target //可作用于
+                    ElementType 
+                        ANNOTATION_TYPE
+                        CONSTRUCTOR 
+                        FIELD 
+                        LOCAL_VARIABLE 
+                        METHOD 
+                        PACKAGE 
+                        PARAMETER 
+                        TYPE 
+                        TYPE_PARAMETER JDK8
+                        TYPE_USE JDK8
+                    默认可以使用于处类型参数意外的地方
+                @Interited //
+                    标记注解
+                    只作用于类声明的注解
+
+            java.lang 
+                @Override 
+                    标记注解
+                    只用于方法
+                    注解的方法必须是重写与超类的方法
+                @Deprecated 
+                    已过时
+                @FuncationlInterface 
+                    标记注解
+                    函数式接口（不是必须使用该注解）
+                    非函数式接口编译报错
+                @SafeVarargs 
+                    标记注解
+                    varargs方法 或声明为static 或 final 的构造函数
+                    没有发生与可变参数相关的不安全动作
+                @SuppressWarnings 
+                    抑制编译器错误
+
+                ------
+                @Repeatable 
+                @Native 
+            JDK8  类型注解
+                返回类型、this 的类型、强制转换、数组级别、被继承的了以及throws子句。泛型，包括参数边界和泛型类型参数
+                @Target ElementType.TYPE_USE 
+            重复注解
+                @Repeatable 
+                容器类型
+                创建重复注解必须创建容器注解，然后将注解的类型指定为@Repeatable(MyRepeatedAnnos.class)
+                @interface MyAnno{
+                    int val() default 9000;
+                }
+
+                @interface MyRepeatedAnnos{
+                    MyAnno[] value();
+                }
+
+                getAnnotation 返回 容器注解
+
+                另一种方式获取重复注解
+                    getAnnotationByType | getDeclaredAnnotationsByType 返回注解数组，无注解返回长度为0 的注解数组
+    注解限制
+        不能继承其他注解，
+        不能带有参数
+        不能返回以下类型的值
+            基本类型
+            String 或Class 类型的对象
+            枚举类型
+            其他注解类型
+            上述类型的数组
+            注解不能被泛型化
+            不能throws 子句
+
+
+
+
+        
